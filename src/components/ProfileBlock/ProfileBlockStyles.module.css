@@ -1,0 +1,143 @@
+.profile-block-wrapper {
+  background: #fff;
+  border: 1px solid #eaeaf0;
+  padding: 0;
+  border-radius: 6px;
+  margin-top: 16px;
+  transition: 0.3s;
+  position: relative;
+}
+.profile-block-wrapper:hover {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper {
+  font-size: 14px;
+  position: relative;
+}
+.custom-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0px !important;
+  padding-top: 24px;
+  padding-left: 20px;
+  line-height: 1.2;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.form-wrapper {
+  padding: 24px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  flex-direction: row;
+  gap: 0 24px;
+}
+.col {
+  flex: 1;
+}
+.phoneNumber-wrapper {
+  display: flex;
+  gap: 0 24px;
+}
+
+.input-label {
+  font-size: 13px;
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.required-icon {
+  color: #f85a5a;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 6px;
+  padding: 15px 10px;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.3s ease 0s, font-size 0s ease 0s, letter-spacing 0s ease 0s;
+  white-space: nowrap;
+  -webkit-text-fill-color: rgb(51, 51, 51);
+  opacity: 1;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+.input:focus {
+  border: 1px solid rgb(128, 173, 255);
+}
+.position-relative {
+  position: relative;
+}
+.gender-radio-button-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px 8px;
+  margin: 0px;
+  column-gap: 8px;
+  font-size: 14px;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+.gender-label {
+  flex: 1 1 0%;
+  margin: 10px 0px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  word-break: break-word;
+  color: rgb(51, 51, 51);
+  opacity: 1;
+}
+.radio-button-custom {
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgb(85, 85, 85);
+  background: unset;
+  opacity: 1;
+  transition: all 0.25s ease 0s;
+}
+.radio-button-custom:hover {
+  border-color: rgb(0, 90, 255);
+}
+.radio-button-custom:checked {
+  background-color: rgb(0, 90, 255);
+}
+.radio-button-custom::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  visibility: hidden;
+}
+.radio-button-custom:checked::before {
+  visibility: visible;
+}
+.warning-label {
+  color: #f85a5a;
+  font-size: 12px;
+  display: none;
+  margin-top: 5px;
+}
