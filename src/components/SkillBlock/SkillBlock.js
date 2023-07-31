@@ -139,6 +139,7 @@ function SkillBlock(props) {
                         inputLocator={inputLocator}
                         onUpdateLevel={updateLevel}
                         getSkillEditKey={updateSkillKeyEdit}
+                        skillEditKey={skillKeyEdit}
                         changeSkillName={handlingSetSkillName}
                       />
                     </React.Fragment>

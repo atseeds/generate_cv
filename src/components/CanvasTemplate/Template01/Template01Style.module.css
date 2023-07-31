@@ -175,3 +175,11 @@
 .progress-custom::-webkit-progress-value {
   background-color: #413f42;
 }
+.progress-max {
+  display: flex;
+  width: 75%;
+  height: 9px;
+  margin-top: 4px;
+  border-radius: 0;
+  background-color: #7f8487;
+}

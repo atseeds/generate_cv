@@ -71,11 +71,20 @@ function Template01(props) {
                   <li className={Styles["skills-li"]} key={"skill" + index}>
                     <div className={Styles["skill-card"]}>
                       <div style={{ width: "100%" }}>{skill.name}</div>
-                      <progress
+                      {/* <progress
                         className={Styles["progress-custom"]}
                         value={skill.rate}
                         max={"5"}
-                      ></progress>
+                      ></progress> */}
+                      <div className={Styles["progress-max"]}>
+                        <div
+                          style={{
+                            height: "100%",
+                            width: skill.rate * 20 + "%",
+                            backgroundColor: "#413f42",
+                          }}
+                        ></div>
+                      </div>
                     </div>
                   </li>
                 );
@@ -91,34 +100,53 @@ function Template01(props) {
           </ul>
           <h2 className={Styles["skills"]}>NGOẠI NGỮ</h2>
           <ul>
-            {props.languages && (
-              <li className={Styles["skills-li"]}>
-                <div className={Styles["skill-card"]}>
-                  <div style={{ width: "100%" }}>{props.languages.name}</div>
-                  <progress
+            {props.languages &&
+              props.languages.map((language, index) => {
+                return (
+                  <li key={"language" + index} className={Styles["skills-li"]}>
+                    <div className={Styles["skill-card"]}>
+                      <div style={{ width: "100%" }}>{language.name}</div>
+                      {/* <progress
                     className={Styles["progress-custom"]}
                     value={props.languages.rate}
                     max={"5"}
-                  ></progress>
-                </div>
-              </li>
-            )}
+                  ></progress> */}
+                      <div className={Styles["progress-max"]}>
+                        <div
+                          style={{
+                            height: "100%",
+                            width: language.rate * 20 + "%",
+                            backgroundColor: "#413f42",
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
           <h2 className={Styles["skills"]}>HỌC VẤN</h2>
           {/* Experience Item */}
-          <div className={Styles["item"]}>
-            <h4 className={Styles.h4}>{props.education.major}</h4>
-            <div className={Styles["time"]}>
-              <span className={Styles["duration"]}>
-                {props.education.school}
-              </span>
-              <br />
-              <span>
-                {props.education.fromMonth} - {props.education.toMonth}
-              </span>
-            </div>
-            <div className={Styles["des"]}>{props.education.desc}</div>
-          </div>
+
+          {props.educations &&
+            props.educations.map((edu, index) => {
+              return (
+                <React.Fragment key={"education" + index}>
+                  <div className={Styles["item"]}>
+                    <h4 className={Styles.h4}>{edu.major}</h4>
+                    <div className={Styles["time"]}>
+                      <span className={Styles["duration"]}>{edu.school}</span>
+                      <br />
+                      <span>
+                        {edu.fromMonth} - {edu.toMonth}
+                      </span>
+                    </div>
+                    <div className={Styles["des"]}>{edu.desc} </div>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+
           <h2 className={Styles["skills"]}>NGƯỜI THAM CHIẾU</h2>
           {/* Reference Item */}
           <div className={Styles["item"]}>

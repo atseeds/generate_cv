@@ -10,10 +10,12 @@ function SkillCard(props) {
   const deleteButtonLocator = React.useRef();
 
   useEffect(() => {
-    if (!props.isEdit) {
-      deleteButtonLocator.current.hidden = false;
+    if (props.isEdit && props.skillEditKey == props.skillKey) {
+      deleteButtonLocator.current.style.display = "none";
+    } else {
+      deleteButtonLocator.current.style.display = "block";
     }
-  }, [props.isEdit]);
+  }, [props.isEdit, props.skillEditKey, props.skillKey]);
 
   const handlingDeleteClick = () => {
     props.removeSkill(props.skillKey);

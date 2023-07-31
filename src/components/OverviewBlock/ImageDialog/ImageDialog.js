@@ -70,7 +70,7 @@ function ImageDialog(props) {
         <div className={Styles["avatar-preview-wrapper"]}>
           <div className={Styles["edit-img-wrapper"]}>
             <p className={Styles["custom-previewImg-label"]}>
-              Vui lòng chọn ảnh muốn
+              Vui lòng chọn ảnh bạn muốn
             </p>
             <Avatar
               width={"506"}
@@ -93,7 +93,7 @@ function ImageDialog(props) {
             />
           </div>
           <div className={Styles["preview-img-wrapper"]}>
-            <p className={Styles["custom-previewImg-label"]}>Xem thử</p>
+            <p className={Styles["custom-previewImg-label"]}>Xem trước</p>
             {imgPreview && (
               <img className={Styles.img} src={imgPreview} alt="ABC" />
             )}

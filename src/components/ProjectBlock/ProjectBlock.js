@@ -4,8 +4,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import Styles from "./ProjectBlockStyle.module.css";
 import { DatePicker } from "@mui/x-date-pickers";
 import ProjectCard from "./ProjectCard/ProjectCard";
+import { countCharacters } from "../../utils/method/ValidationUtils";
 import dayjs from "dayjs";
-import { countCharacters } from "../../utils/method/countWord";
 const sxStyle = {
   width: "100%",
   "& .MuiInputBase-input": {

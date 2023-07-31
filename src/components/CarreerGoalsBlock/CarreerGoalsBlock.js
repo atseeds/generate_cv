@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Styles from "./CarreerGoalsBlockStyle.module.css";
-import { countCharacters } from "../../utils/method/countWord";
+import { countCharacters } from "../../utils/method/ValidationUtils";
 function CarreerGoalsBlock(props) {
   const maxCount = 5000;
   const [count, setCount] = useState(0);

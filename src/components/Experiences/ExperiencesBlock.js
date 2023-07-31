@@ -4,7 +4,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
-import { countCharacters } from "../../utils/method/countWord";
+import { countCharacters } from "../../utils/method/ValidationUtils";
 import { useRef } from "react";
 
 const sxStyle = {

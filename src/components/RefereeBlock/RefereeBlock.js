@@ -6,10 +6,9 @@ import TextField from "@mui/material/TextField";
 import { alpha, styled } from "@mui/material/styles";
 import Autocomplete from "@mui/material/Autocomplete";
 import { countries } from "../../utils/data/data";
-import { isOnlyCharacterString } from "../../utils/method/inputValidation/isOnlyCharacterString";
-import { isValidEmail } from "../../utils/method/inputValidation/isValidEmail";
-import { isVietnamesePhoneNumberValid } from "../../utils/method/inputValidation/isValidPhoneNumber";
-
+import { isOnlyCharacterString } from "../../utils/method/ValidationUtils";
+import { isValidEmail } from "../../utils/method/ValidationUtils";
+import { isVietnamesePhoneNumberValid } from "../../utils/method/ValidationUtils";
 const AutoComplete = styled(Autocomplete)`
   & .MuiInputBase-input {
     height: 10px;

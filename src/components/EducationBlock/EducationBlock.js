@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import Styles from "./EducationStyles.module.css";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
-import styled from "styled-components";
+
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
-import { countCharacters } from "../../utils/method/countWord";
+import { countCharacters } from "../../utils/method/ValidationUtils";
+import EducationCard from "./EducationCard/EducationCard";
+
 const sxStyle = {
   width: "100%",
   "& .MuiInputBase-input": {
@@ -22,13 +22,31 @@ function EducationBlock(props) {
 
   const majorInputLocator = useRef();
   const majorWarning = useRef();
+  const descInputLocator = useRef();
   const schoolInputLocator = useRef();
   const schoollWarning = useRef();
+  const limitWarningBlockRef = useRef();
+  const missingWarningBlockRef = useRef();
+
+  // hook for edit mode
+  const [isEdit, setIsEdit] = useState(false);
+  // Store the temp key - this temp key is auto generated +1 after Adding project
+  const [id, setId] = useState(0);
+  // Store the key of item is being Edited
+  const [isEditKey, setIsEditKey] = useState(-1);
+  // Education object
+  const [education, setEducation] = useState({
+    id: id,
+    major: "",
+    school: "",
+    fromMonth: "",
+    toMonth: "",
+    desc: "",
+  });
 
   const handlingChangeMajorInput = (e) => {
+    // Validation
     if (e.target.value != "") {
-      let tempEducation = { ...props.education, major: e.target.value };
-      props.onUpdateEducation(tempEducation);
       majorInputLocator.current.style.border = "1px solid rgb(196, 196, 196)";
       majorWarning.current.style.display = "none";
     } else {
@@ -38,9 +56,8 @@ function EducationBlock(props) {
   };
 
   const handlingChangeSchoolInput = (e) => {
+    // Validation
     if (e.target.value != "") {
-      let tempEducation = { ...props.education, school: e.target.value };
-      props.onUpdateEducation(tempEducation);
       schoolInputLocator.current.style.border = "1px solid rgb(196, 196, 196)";
       schoollWarning.current.style.display = "none";
     } else {
@@ -50,19 +67,105 @@ function EducationBlock(props) {
   };
 
   const handlingChangeFromMonthInput = (value) => {
-    let tempEducation = { ...props.education, fromMonth: value };
-    props.onUpdateEducation(tempEducation);
+    let tempEducation = { ...education, fromMonth: value };
+    setEducation(tempEducation);
   };
   const handlingChangeToMonthInput = (value) => {
-    let tempEducation = { ...props.education, toMonth: value };
-    props.onUpdateEducation(tempEducation);
+    let tempEducation = { ...education, toMonth: value };
+    setEducation(tempEducation);
   };
   const handlingChangeDescInput = (e) => {
     let value = e.target.value;
-    let tempEducation = { ...props.education, desc: value };
+    let tempEducation = { ...education, desc: value };
     if (count <= maxCount) {
       setCount(countCharacters(value));
+      setEducation(tempEducation);
+    }
+  };
+
+  const handlingClickAddButton = () => {
+    if (
+      majorInputLocator.current.value != "" &&
+      majorInputLocator.current.value != "" &&
+      education.fromMonth != "" &&
+      education.toMonth != "" &&
+      props.educations.length < 4
+    ) {
+      // set key,school,major for the education
+      let tempEducation = {
+        ...education,
+        id: id,
+        major: majorInputLocator.current.value,
+        school: schoolInputLocator.current.value,
+      };
+
+      console.log(tempEducation);
       props.onUpdateEducation(tempEducation);
+      // update Key + 1
+      setId(id + 1);
+      // reset all the ref
+      limitWarningBlockRef.current.style.display = "none";
+      missingWarningBlockRef.current.style.display = "none";
+      majorInputLocator.current.value = "";
+      majorInputLocator.current.focus();
+      schoolInputLocator.current.value = "";
+      descInputLocator.current.value = "";
+    } else if (props.educations.length >= 4) {
+      limitWarningBlockRef.current.style.display = "block";
+    } else {
+      missingWarningBlockRef.current.style.display = "block";
+      if (majorInputLocator.current.value == "") {
+        majorInputLocator.current.style.border = "1px solid red";
+      }
+      if (schoolInputLocator.current.value == "") {
+        schoolInputLocator.current.style.border = "1px solid red";
+      }
+    }
+  };
+  const handlingClickExit = () => {
+    // set all the ref value to default
+    majorInputLocator.current.value = "";
+    schoolInputLocator.current.value = "";
+    descInputLocator.current.value = "";
+    // turn the edit mode: off
+    setIsEdit(false);
+  };
+  const handlingClickSave = () => {
+    if (
+      majorInputLocator.current.value != "" &&
+      majorInputLocator.current.value != "" &&
+      education.fromMonth != "" &&
+      education.toMonth != "" &&
+      props.educations.length < 4
+    ) {
+      // edit the educationListItem
+      props.onEditEducations(
+        isEditKey,
+        majorInputLocator.current.value,
+        schoolInputLocator.current.value,
+        education.fromMonth,
+        education.toMonth,
+        education.desc
+      );
+      // reset the isEditKey to default
+      setIsEditKey(-1);
+      // turn the edit mode: off
+      setIsEdit(false);
+      // reset all the ref
+      limitWarningBlockRef.current.style.display = "none";
+      missingWarningBlockRef.current.style.display = "none";
+      majorInputLocator.current.value = "";
+      majorInputLocator.current.focus();
+      schoolInputLocator.current.value = "";
+      descInputLocator.current.value = "";
+    } else {
+      missingWarningBlockRef.current.style.display = "block";
+      if (majorInputLocator.current.value == "") {
+        majorInputLocator.current.style.border = "1px solid red";
+      }
+      if (schoolInputLocator.current.value == "") {
+        schoolInputLocator.current.style.border = "1px solid red";
+      }
     }
   };
 
@@ -77,6 +180,26 @@ function EducationBlock(props) {
           </div>
           <div className={Styles["form-wrapper"]}>
             <div className={Styles["row"]}>
+              {props.educations &&
+                props.educations.map((edu, index) => {
+                  return (
+                    <React.Fragment key={"eduCard" + index}>
+                      <EducationCard
+                        education={edu}
+                        onDelete={props.onDeleteEducationItem}
+                        onEdit={setIsEdit}
+                        isEdit={isEdit}
+                        isEditKey={isEditKey}
+                        setIsEditKey={setIsEditKey}
+                        majorRef={majorInputLocator}
+                        schoolRef={schoolInputLocator}
+                        descRef={descInputLocator}
+                      />
+                    </React.Fragment>
+                  );
+                })}
+            </div>
+            <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
                   <span className={Styles["required-icon"]}>*</span> Chuyên
@@ -85,7 +208,6 @@ function EducationBlock(props) {
                 <div className={Styles["position-relative"]}>
                   <input
                     ref={majorInputLocator}
-                    defaultValue={"Chức danh"}
                     onChange={handlingChangeMajorInput}
                     className={Styles["input"]}
                   ></input>
@@ -103,7 +225,6 @@ function EducationBlock(props) {
                 <div className={Styles["position-relative"]}>
                   <input
                     ref={schoolInputLocator}
-                    defaultValue={"Trường"}
                     onChange={handlingChangeSchoolInput}
                     className={Styles["input"]}
                   ></input>
@@ -116,7 +237,7 @@ function EducationBlock(props) {
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> Từ tháng
+                  <span className={Styles["required-icon"]}> </span> Từ năm
                 </div>
                 <div className={Styles["position-relative"]}>
                   <DatePicker
@@ -131,7 +252,7 @@ function EducationBlock(props) {
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> Đến tháng
+                  <span className={Styles["required-icon"]}> </span> Đến năm
                 </div>
                 <div className={Styles["position-relative"]}>
                   <DatePicker
@@ -144,7 +265,6 @@ function EducationBlock(props) {
                   />
                 </div>
               </div>
-              <div className={Styles["col"]}></div>
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["input-label"]}>
@@ -152,7 +272,7 @@ function EducationBlock(props) {
               </div>
               <div className={Styles["position-relative"]}>
                 <textarea
-                  defaultValue={"Mô tả"}
+                  ref={descInputLocator}
                   className={Styles["text-aria"]}
                   onChange={handlingChangeDescInput}
                 ></textarea>
@@ -162,6 +282,44 @@ function EducationBlock(props) {
                 {"/"}
                 {maxCount}
               </div>
+            </div>
+            <div className={Styles["button-card"]}>
+              <div
+                ref={limitWarningBlockRef}
+                className={Styles["warning-label"]}
+              >
+                Bạn đã ghi tối đa
+              </div>
+              <div
+                ref={missingWarningBlockRef}
+                className={Styles["warning-label"]}
+              >
+                Bạn cần điền đầy đủ thông tin
+              </div>
+
+              {isEdit && (
+                <button
+                  onClick={handlingClickExit}
+                  className={Styles["btn-huy"]}
+                >
+                  Huỷ
+                </button>
+              )}
+              {isEdit ? (
+                <button
+                  onClick={handlingClickSave}
+                  className={Styles["btn-luu"]}
+                >
+                  Lưu
+                </button>
+              ) : (
+                <button
+                  onClick={handlingClickAddButton}
+                  className={Styles["btn-luu"]}
+                >
+                  Thêm
+                </button>
+              )}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import Styles from "./LanguageStyles.module.css";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
@@ -6,6 +6,7 @@ import StarIcon from "@mui/icons-material/Star";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { useRef } from "react";
+import LanguageCard from "./LanguageCard/LanguageCard";
 
 const sxStyle = {
   width: "100%",
@@ -31,8 +32,17 @@ function LanguageBlock(props) {
   // Store useRef Hooks for warning label and input
   const inputLocator = useRef();
   const warningLabelBlock = useRef();
+  const warningLabelBlock2 = useRef();
+  const warningLabelBlock3 = useRef();
+
+  //Store the Add or Edit mode
+  const [isEdit, setIsEdit] = useState(false);
+  // Store the temp key - this temp key is auto generated +1 after Adding project
+  const [languageKey, setLanguageKey] = useState(0);
+
   // Store the language states
   const [language, setLanguage] = React.useState({
+    id: languageKey,
     name: "",
     rate: 0,
   });
@@ -46,10 +56,31 @@ function LanguageBlock(props) {
     let tempValue = { ...language, rate: value };
     setLanguage(tempValue);
   };
-  const handlingClickSaveButton = () => {
-    if (language.name != "" && language.rate != 0) {
-      props.onChangeLanguage(language);
+
+  const IsDuplicateLanguage = (value) => {
+    const result = props.languages.some((lang) => lang.name == value);
+    return result;
+  };
+
+  const handlingClickAddButton = () => {
+    if (IsDuplicateLanguage(language.name) == true) {
+      console.log("aaaa");
+      warningLabelBlock3.current.style.display = "block";
+    } else if (
+      language.name != "" &&
+      language.rate != 0 &&
+      props.languages.length < 4
+    ) {
+      // setId for language
+      let tempLanguage = { ...language, id: languageKey };
+      props.onChangeLanguage(tempLanguage);
+      setLanguageKey(languageKey + 1);
       warningLabelBlock.current.style.display = "none";
+      warningLabelBlock2.current.style.display = "none";
+      warningLabelBlock3.current.style.display = "none";
+    } else if (props.languages.length >= 4) {
+      warningLabelBlock2.current.style.display = "block";
+      warningLabelBlock3.current.style.display = "none";
     } else {
       warningLabelBlock.current.style.display = "block";
     }
@@ -62,6 +93,20 @@ function LanguageBlock(props) {
           {/* Heading */}
           <h2 className={Styles["custom-heading"]}>Ngoại ngữ</h2>
           <div className={Styles["form-wrapper"]}>
+            <div className={Styles["row"]}>
+              {props.languages &&
+                props.languages.map((language, index) => {
+                  return (
+                    <React.Fragment key={"skill" + index}>
+                      <LanguageCard
+                        language={language}
+                        onDelete={props.onDeleteLanguageItem}
+                        onEdit={setIsEdit}
+                      />
+                    </React.Fragment>
+                  );
+                })}
+            </div>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
@@ -80,7 +125,7 @@ function LanguageBlock(props) {
                       style={{ height: "40px" }}
                       renderInput={(params) => (
                         <TextField
-                          ref={inputLocator}
+                          inputRef={inputLocator}
                           {...params}
                           inputProps={{
                             ...params.inputProps,
@@ -139,13 +184,24 @@ function LanguageBlock(props) {
               <div ref={warningLabelBlock} className={Styles["warning-label"]}>
                 Bạn cần điền đầy đủ thông tin
               </div>
+              <div ref={warningLabelBlock2} className={Styles["warning-label"]}>
+                Bạn đã ghi tối đa
+              </div>
+              <div ref={warningLabelBlock3} className={Styles["warning-label"]}>
+                Thông tin bị trùng
+              </div>
               <div className={Styles["button-card"]}>
-                <button
-                  className={Styles["btn-luu"]}
-                  onClick={handlingClickSaveButton}
-                >
-                  Thêm
-                </button>
+                {isEdit && <button className={Styles["btn-huy"]}>Huỷ</button>}
+                {isEdit ? (
+                  <button className={Styles["btn-luu"]}>Lưu</button>
+                ) : (
+                  <button
+                    className={Styles["btn-luu"]}
+                    onClick={handlingClickAddButton}
+                  >
+                    Thêm
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -197,4 +253,5 @@ const languages = [
   "Tiếng Thổ Nhĩ Kì",
   "Tiếng UKraina",
   "Khác",
+  "",
 ];

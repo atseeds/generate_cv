@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Styles from "../styles/home.module.css";
 import { Grid, Box } from "@mui/material";
@@ -15,27 +15,35 @@ import customTheme from "../Theme/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import Template01 from "../components/CanvasTemplate/Template01/Template01";
 import ProjectBlock from "../components/ProjectBlock/ProjectBlock";
-import Template01Download from "../components/CanvasTemplate/Template01/Template01Download";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 function App() {
   // useREf for template download
   const cvDownloadRef = useRef();
-  //Handling generate HTML
-  const handleGeneratePdf = () => {
+
+  const handleGeneratePdf = (filename) => {
     const input = cvDownloadRef.current;
-    html2canvas(input).then((canvas) => {
+
+    // Cải thiện chất lượng của ảnh bằng cách tăng tỷ lệ của canvas
+    const scale = 2; // Tùy chỉnh tỷ lệ tại đây, ví dụ: 1, 1.5, 2, 3, ...
+    const canvasWidth = input.offsetWidth;
+    const canvasHeight = input.offsetHeight;
+    const scaledWidth = canvasWidth * scale;
+    const scaledHeight = canvasHeight * scale;
+
+    html2canvas(input, { scale }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
-      const pdfWidth = canvas.width * 0.264583; // Convert px to mm (1 px = 0.264583 mm)
-      const pdfHeight = canvas.height * 0.264583;
+      const pdfWidth = scaledWidth * 0.264583; // Convert px to mm (1 px = 0.264583 mm)
+      const pdfHeight = scaledHeight * 0.264583;
       const pdf = new jsPDF("p", "mm", [pdfWidth, pdfHeight], true);
       const imgWidth = pdfWidth;
-      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+      const imgHeight = (scaledHeight * pdfWidth) / scaledWidth;
       const imgX = 0;
       const imgY = 0;
       pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth, imgHeight);
-      pdf.save("invoice.pdf");
+      let name = filename + " -CV";
+      pdf.save(name);
     });
   };
 
@@ -53,7 +61,7 @@ function App() {
   const [introduction, setIntroduction] = useState("Giới thiệu");
   const [avatarSrc, setAtavarSrc] = useState("https://i.imgur.com/IY0fVMm.png");
   const [skillList, setSkillList] = useState([]);
-  const [language, setLanguage] = useState(null);
+  const [languages, setLanguages] = useState([]);
   const [reference, setReference] = useState({
     name: "Họ và tên",
     position: "Chức danh",
@@ -69,13 +77,7 @@ function App() {
     exCompany: "Tên công ty",
     desc: "Mô tả",
   });
-  const [education, setEducation] = useState({
-    major: "Chuyên ngành",
-    school: "Trường",
-    fromMonth: "Từ tháng",
-    toMonth: "Tới tháng",
-    desc: "Mô tả",
-  });
+  const [educations, setEducations] = useState([]);
   const [projectList, setProjectList] = useState([]);
 
   // States for Dialog and avatar source
@@ -143,8 +145,59 @@ function App() {
     setExperience(experience);
   };
 
-  const updateLanguage = (language) => {
-    setLanguage(language);
+  const updateEducations = (edu) => {
+    setEducations(() => {
+      educations.push(edu);
+      let tempEducations = [...educations];
+      return tempEducations;
+    });
+  };
+
+  const deleteEducations = (keyValue) => {
+    setEducations(() => {
+      let tempEducations = educations.filter((edu) => {
+        return edu.id != keyValue;
+      });
+      return tempEducations;
+    });
+  };
+
+  const editEducations = (key, major, school, fromMonth, toMonth, desc) => {
+    setEducations(() => {
+      const tempEducations = educations.map((edu) => {
+        if (edu.id == key) {
+          let newItem = {
+            ...edu,
+            major: major,
+            school: school,
+            fromMonth: fromMonth,
+            toMonth: toMonth,
+            desc: desc,
+          };
+          return newItem;
+        } else {
+          return edu;
+        }
+      });
+      return tempEducations;
+    });
+  };
+
+  const updateLanguages = (language) => {
+    setLanguages(() => {
+      languages.push(language);
+      let tempLanguages = [...languages];
+      return tempLanguages;
+    });
+  };
+
+  const deleteLanguagesItem = (keyValue) => {
+    setLanguages(() => {
+      let tempLanguages = languages.filter((lang) => {
+        return lang.id != keyValue;
+      });
+      return tempLanguages;
+    });
   };
 
   const updateSkillList = (value) => {
@@ -157,7 +210,7 @@ function App() {
 
   const deleteItemInSkillList = (keyValue) => {
     setSkillList(() => {
-      const tempSkillList = skillList.filter((skill) => {
+      let tempSkillList = skillList.filter((skill) => {
         return skill.key != keyValue;
       });
       return tempSkillList;
@@ -188,7 +241,7 @@ function App() {
 
   const deleteItemProjectList = (keyValue) => {
     setProjectList(() => {
-      const tempProjectList = projectList.filter((project) => {
+      let tempProjectList = projectList.filter((project) => {
         return project.key != keyValue;
       });
       return tempProjectList;
@@ -209,9 +262,9 @@ function App() {
     });
   };
 
-  const updateEducation = (value) => {
-    setEducation(value);
-  };
+  useEffect(() => {
+    console.log(educations);
+  }, [educations]);
 
   return (
     <>
@@ -263,12 +316,15 @@ function App() {
                 onEditSkillItem={editItemSkillList}
               />
               <LanguageBlock
-                onChangeLanguage={updateLanguage}
-                language={language}
+                onChangeLanguage={updateLanguages}
+                onDeleteLanguageItem={deleteLanguagesItem}
+                languages={languages}
               />
               <EducationBlock
-                education={education}
-                onUpdateEducation={updateEducation}
+                educations={educations}
+                onUpdateEducation={updateEducations}
+                onDeleteEducationItem={deleteEducations}
+                onEditEducations={editEducations}
               />
               <RefereeBlock
                 reference={reference}
@@ -297,9 +353,9 @@ function App() {
                 address={address}
                 experience={experience}
                 skillList={skillList}
-                languages={language}
+                languages={languages}
                 avatarSrc={avatarSrc}
-                education={education}
+                educations={educations}
                 projects={projectList}
                 reference={reference}
                 cvRef={cvDownloadRef}
@@ -308,16 +364,12 @@ function App() {
               <div className={Styles["button-wrapper"]}>
                 <div className={Styles["button-card"]}>
                   <button
-                    onClick={handleGeneratePdf}
+                    onClick={() => handleGeneratePdf(`${surName}-${lastName}`)}
                     className={Styles["btn-luu"]}
                   >
-                    Download CV
+                    Tải CV
                   </button>
                 </div>
-              </div>
-              {/* Contains CV to download */}
-              <div>
-                <Template01Download display="none" />
               </div>
             </Grid>
           </Grid>

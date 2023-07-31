@@ -5,7 +5,7 @@ import { memo } from "react";
 import ImageDialog from "./ImageDialog/ImageDialog";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { isOnlyCharacterString } from "../../utils/method/inputValidation/isOnlyCharacterString";
+import { isOnlyCharacterString } from "../../utils/method/ValidationUtils";
 import { useState } from "react";
 
 function OverviewBlock(props) {

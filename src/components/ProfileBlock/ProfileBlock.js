@@ -9,9 +9,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { countries } from "../../utils/data/data";
 import dayjs from "dayjs";
-import { isValidEmail } from "../../utils/method/inputValidation/isValidEmail";
-import { isVietnamesePhoneNumberValid } from "../../utils/method/inputValidation/isValidPhoneNumber";
-
+import { isValidEmail } from "../../utils/method/ValidationUtils";
+import { isVietnamesePhoneNumberValid } from "../../utils/method/ValidationUtils";
 const PhoneNumberAutoComplete = styled(Autocomplete)`
   & .MuiInputBase-input {
     height: 10px;
