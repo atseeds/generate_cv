@@ -1,10 +1,10 @@
 import React from "react";
-import Styles from "./Template01Style.module.css";
+import Styles from "./TemplateDownload01Styles.module.css";
 
-function Template01(props) {
+function TemplateDownload01(props) {
   return (
     <div>
-      <div className={Styles["container"]}>
+      <div className={Styles["container"]} ref={props.cvRef}>
         <div className={Styles["avatar"]}>
           <div className="avatar-container"></div>
           <img className={Styles["img"]} src={props.avatarSrc} alt="" />
@@ -195,4 +195,4 @@ function Template01(props) {
   );
 }
 
-export default Template01;
+export default TemplateDownload01;

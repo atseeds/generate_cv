@@ -95,7 +95,7 @@ function ProfileBlock(props) {
       <div className={Styles["profile-block-wrapper"]}>
         <div className={Styles["content-wrapper"]}>
           {/* Heading */}
-          <h2 className={Styles["custom-heading"]}>Thông Tin Cá Nhân</h2>
+          <h2 className={Styles["custom-heading"]}>Personal Information</h2>
           <div className={Styles["form-wrapper"]}>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
@@ -114,12 +114,13 @@ function ProfileBlock(props) {
                   ref={emailWarningLabel}
                   className={Styles["warning-label"]}
                 >
-                  Email của bạn không hợp lệ.
+                  Your Email is invalid
                 </div>
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Điện thoại
+                  <span className={Styles["required-icon"]}>*</span> Phone
+                  number
                 </div>
                 <div
                   className={`${Styles["position-relative"]} ${Styles["phoneNumber-wrapper"]}`}
@@ -166,7 +167,7 @@ function ProfileBlock(props) {
                   </div>
                   <div style={{ flex: 3 }}>
                     <input
-                      defaultValue={"Số điện thoại"}
+                      defaultValue={"Phone number"}
                       ref={phoneInputLocator}
                       onBlur={handlingChangePhoneNumb}
                       className={Styles["input"]}
@@ -177,14 +178,14 @@ function ProfileBlock(props) {
                   ref={phoneWarningLabel}
                   className={Styles["warning-label"]}
                 >
-                  Số điện thoại của bạn không hợp lệ.
+                  Your phone number is invalid
                 </div>
               </div>
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Ngày sinh
+                  <span className={Styles["required-icon"]}>*</span> Birthday
                 </div>
                 <div className={Styles["position-relative"]}>
                   <CustomeDatePicker
@@ -199,7 +200,7 @@ function ProfileBlock(props) {
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Quốc gia
+                  <span className={Styles["required-icon"]}>*</span> Nation
                 </div>
                 <div className={Styles["position-relative"]}>
                   <NationAutoComplete
@@ -245,7 +246,7 @@ function ProfileBlock(props) {
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Địa chỉ
+                  <span className={Styles["required-icon"]}>*</span> Address
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
@@ -255,7 +256,7 @@ function ProfileBlock(props) {
                   ></input>
                 </div>
                 <div ref={addressWarning} className={Styles["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
               <div className={Styles["col"]}></div>

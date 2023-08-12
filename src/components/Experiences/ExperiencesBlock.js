@@ -72,50 +72,51 @@ function ExperiencesBlock(props) {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div className={Styles["experiences-block"]}>
         <div className={Styles["content-wrapper"]}>
-          <h2 className={Styles["custom-heading"]}>Kinh Nghiệm Làm Việc</h2>
+          <h2 className={Styles["custom-heading"]}>Work Experience</h2>
           <div className={Styles["short-info"]}>
-            Mô tả kinh nghiệm làm việc của bạn càng chi tiết càng tốt, điều đó
-            giúp bạn có cơ hội hiển thị nhiều hơn trong kết quả tìm kiếm
+            Provide a detailed description of your work experience as much as
+            possible, as it increases your chances of appearing more prominently
+            in search results
           </div>
           <div className={Styles["form-wrapper"]}>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Chức danh
+                  <span className={Styles["required-icon"]}>*</span> Position
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
-                    defaultValue={"Chức danh"}
+                    defaultValue={"Position"}
                     ref={positionInputLocator}
                     onChange={handlingChangeExPosition}
                     className={Styles["input"]}
                   ></input>
                 </div>
                 <div ref={positionWarning} className={Styles["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Công ty
+                  <span className={Styles["required-icon"]}>*</span> Company
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
                     ref={companyInputLocator}
-                    defaultValue={"Công ty"}
+                    defaultValue={"Company"}
                     onChange={handlingChangeExCompany}
                     className={Styles["input"]}
                   ></input>
                 </div>
                 <div ref={companyWarning} className={Styles["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> Từ tháng
+                  <span className={Styles["required-icon"]}> </span> From month
                 </div>
                 {/* from month */}
                 <div className={Styles["position-relative"]}>
@@ -131,7 +132,7 @@ function ExperiencesBlock(props) {
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> Đến tháng
+                  <span className={Styles["required-icon"]}> </span> To month
                 </div>
                 {/* to month */}
                 <div className={Styles["position-relative"]}>
@@ -148,7 +149,7 @@ function ExperiencesBlock(props) {
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["input-label"]}>
-                <span className={Styles["required-icon"]}>*</span> Mô tả
+                <span className={Styles["required-icon"]}>*</span> Description
               </div>
               <div className={Styles["position-relative"]}>
                 <textarea
@@ -164,7 +165,7 @@ function ExperiencesBlock(props) {
             </div>
             <div className={Styles["button-wrapper"]}>
               <div className={Styles["button-card"]}>
-                <button className={Styles["btn-luu"]}>Lưu</button>
+                <button className={Styles["btn-luu"]}>Save</button>
               </div>
             </div>
           </div>

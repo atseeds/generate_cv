@@ -154,7 +154,7 @@ function OverviewBlock(props) {
               {/* Họ */}
               <div className={Style["input-area"]}>
                 <div className={Style["input-label"]}>
-                  <span className={Style["required-icon"]}>*</span> Họ
+                  <span className={Style["required-icon"]}>*</span> First name
                 </div>
                 <div className={Style["position-relative"]}>
                   <input
@@ -171,7 +171,7 @@ function OverviewBlock(props) {
               {/* Tên */}
               <div className={Style["input-area"]}>
                 <div className={Style["input-label"]}>
-                  <span className={Style["required-icon"]}>*</span> Tên
+                  <span className={Style["required-icon"]}>*</span> Last name
                 </div>
                 <div className={Style["position-relative"]}>
                   <input
@@ -188,7 +188,7 @@ function OverviewBlock(props) {
               {/* Chức danh */}
               <div className={Style["input-area"]}>
                 <div className={Style["input-label"]}>
-                  <span className={Style["required-icon"]}>*</span> Chức danh
+                  <span className={Style["required-icon"]}>*</span> Position
                 </div>
                 <div className={Style["position-relative"]}>
                   <input

@@ -121,7 +121,7 @@ function SkillBlock(props) {
       <div className={Styles["skill-block-wrapper"]}>
         <div className={Styles["content-wrapper"]}>
           {/* Heading */}
-          <h2 className={Styles["custom-heading"]}>Kỹ năng</h2>
+          <h2 className={Styles["custom-heading"]}>Skill</h2>
           <div className={Styles["form-wrapper"]}>
             <div className={Styles["row"]}>
               {/* Skill Card here */}
@@ -149,7 +149,7 @@ function SkillBlock(props) {
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Kỹ năng
+                  <span className={Styles["required-icon"]}>*</span> Skill
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
@@ -162,8 +162,8 @@ function SkillBlock(props) {
 
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Mức độ
-                  thành thạo
+                  <span className={Styles["required-icon"]}>*</span> Proficiency
+                  Level
                 </div>
                 <div className={Styles["position-relative"]}>
                   <Box
@@ -206,10 +206,10 @@ function SkillBlock(props) {
             <div className={Styles["button-wrapper"]}>
               <div style={{ width: "100%" }}>
                 <div ref={warningBlock1} className={Styles["warning-label"]}>
-                  Bạn cần điền đầy đủ thông tin
+                  Please fill in all the required information
                 </div>
                 <div ref={warningBlock2} className={Styles["warning-label"]}>
-                  Bạn đã ghi tối đa
+                  You have reached the maximum limit
                 </div>
               </div>
               <div className={Styles["button-card"]}>
@@ -234,7 +234,7 @@ function SkillBlock(props) {
                     className={Styles["btn-luu"]}
                     onClick={handlingClickAddButton}
                   >
-                    Thêm
+                    Add
                   </button>
                 )}
               </div>

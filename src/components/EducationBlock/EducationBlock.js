@@ -173,10 +173,11 @@ function EducationBlock(props) {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div className={Styles["education-block"]}>
         <div className={Styles["content-wrapper"]}>
-          <h2 className={Styles["custom-heading"]}>Học vấn</h2>
+          <h2 className={Styles["custom-heading"]}>Education</h2>
           <div className={Styles["short-info"]}>
-            Mô tả toàn bộ quá trình học vấn của bạn, cũng như các bằng cấp bạn
-            đã được và các khóa huấn luyện bạn đã tham gia
+            Provide a comprehensive description of your educational background,
+            including the degrees you have obtained and any training courses you
+            have attended
           </div>
           <div className={Styles["form-wrapper"]}>
             <div className={Styles["row"]}>
@@ -202,8 +203,7 @@ function EducationBlock(props) {
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Chuyên
-                  ngành
+                  <span className={Styles["required-icon"]}>*</span> Major
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
@@ -213,14 +213,14 @@ function EducationBlock(props) {
                   ></input>
                 </div>
                 <div ref={majorWarning} className={Styles["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Trường
+                  <span className={Styles["required-icon"]}>*</span> University
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
@@ -230,14 +230,14 @@ function EducationBlock(props) {
                   ></input>
                 </div>
                 <div ref={schoollWarning} className={Styles["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> Từ năm
+                  <span className={Styles["required-icon"]}> </span> From year
                 </div>
                 <div className={Styles["position-relative"]}>
                   <DatePicker
@@ -252,7 +252,7 @@ function EducationBlock(props) {
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> Đến năm
+                  <span className={Styles["required-icon"]}> </span> To year
                 </div>
                 <div className={Styles["position-relative"]}>
                   <DatePicker
@@ -268,7 +268,7 @@ function EducationBlock(props) {
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["input-label"]}>
-                <span className={Styles["required-icon"]}>*</span> Mô tả
+                <span className={Styles["required-icon"]}>*</span> Description
               </div>
               <div className={Styles["position-relative"]}>
                 <textarea
@@ -288,13 +288,13 @@ function EducationBlock(props) {
                 ref={limitWarningBlockRef}
                 className={Styles["warning-label"]}
               >
-                Bạn đã ghi tối đa
+                You have reached the maximum limit
               </div>
               <div
                 ref={missingWarningBlockRef}
                 className={Styles["warning-label"]}
               >
-                Bạn cần điền đầy đủ thông tin
+                Please fill in all the required information
               </div>
 
               {isEdit && (
@@ -302,7 +302,7 @@ function EducationBlock(props) {
                   onClick={handlingClickExit}
                   className={Styles["btn-huy"]}
                 >
-                  Huỷ
+                  Cancel
                 </button>
               )}
               {isEdit ? (
@@ -310,14 +310,14 @@ function EducationBlock(props) {
                   onClick={handlingClickSave}
                   className={Styles["btn-luu"]}
                 >
-                  Lưu
+                  Save
                 </button>
               ) : (
                 <button
                   onClick={handlingClickAddButton}
                   className={Styles["btn-luu"]}
                 >
-                  Thêm
+                  Add
                 </button>
               )}
             </div>

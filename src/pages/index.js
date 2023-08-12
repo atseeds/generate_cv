@@ -17,65 +17,59 @@ import Template01 from "../components/CanvasTemplate/Template01/Template01";
 import ProjectBlock from "../components/ProjectBlock/ProjectBlock";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import TemplateDownload01 from "../components/CanvasTemplate/Template01/TemplateDownload01";
 
 function App() {
   // useREf for template download
   const cvDownloadRef = useRef();
+  // useREf for template download container
+  const cvContainerRef = useRef();
 
-  const handleGeneratePdf = (filename) => {
-    const input = cvDownloadRef.current;
+  const handleGeneratePdf = async () => {
+    // Get height and width of the cv to download
+    const height = cvDownloadRef.current.offsetHeight;
+    const width = cvDownloadRef.current.offsetWidth;
 
-    // Cải thiện chất lượng của ảnh bằng cách tăng tỷ lệ của canvas
-    const scale = 2; // Tùy chỉnh tỷ lệ tại đây, ví dụ: 1, 1.5, 2, 3, ...
-    const canvasWidth = input.offsetWidth;
-    const canvasHeight = input.offsetHeight;
-    const scaledWidth = canvasWidth * scale;
-    const scaledHeight = canvasHeight * scale;
+    // Initialize the jsPDF object
+    var doc = new jsPDF("p", "px", [width, 842]);
 
-    html2canvas(input, { scale }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdfWidth = scaledWidth * 0.264583; // Convert px to mm (1 px = 0.264583 mm)
-      const pdfHeight = scaledHeight * 0.264583;
-      const pdf = new jsPDF("p", "mm", [pdfWidth, pdfHeight], true);
-      const imgWidth = pdfWidth;
-      const imgHeight = (scaledHeight * pdfWidth) / scaledWidth;
-      const imgX = 0;
-      const imgY = 0;
-      pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth, imgHeight);
-      let name = filename + " -CV";
-      pdf.save(name);
+    doc.html(cvDownloadRef.current, {
+      callback: function (doc) {
+        let name = surName + "-" + lastName;
+        doc.save(name);
+      },
     });
   };
 
   // States
-  const [surName, setSurname] = useState("Họ và");
-  const [lastName, setLastname] = useState("Tên");
-  const [position, setPosition] = useState("Chức danh");
+  const [surName, setSurname] = useState("First name");
+  const [lastName, setLastname] = useState("Last name");
+  const [position, setPosition] = useState("Position");
   const [level, setLevel] = useState("Cấp độ");
   const [dialingCode, setDialingCode] = useState("");
-  const [phoneNumb, setPhoneNumb] = useState("");
+  const [phoneNumb, setPhoneNumb] = useState("Phone number");
   const [email, setEmail] = useState("Email");
-  const [birthDay, setBirthDay] = useState("Ngày sinh");
-  const [nation, setNation] = useState("Quốc gia");
-  const [address, setAddress] = useState("Địa chỉ");
-  const [introduction, setIntroduction] = useState("Giới thiệu");
+  const [birthDay, setBirthDay] = useState("Birthday");
+  const [nation, setNation] = useState("Nation");
+  const [address, setAddress] = useState("Address");
+  const [introduction, setIntroduction] = useState("Introduction");
   const [avatarSrc, setAtavarSrc] = useState("https://i.imgur.com/IY0fVMm.png");
   const [skillList, setSkillList] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [reference, setReference] = useState({
-    name: "Họ và tên",
-    position: "Chức danh",
-    company: "Công ty",
+    name: "Name",
+    position: "Position",
+    company: "Company",
     email: "Email",
     dialingCode: "",
-    phone: "Số điện thoại",
+    phone: "Phone number",
   });
   const [experience, setExperience] = useState({
-    exPosition: "Chức danh",
-    fromMonth: "Từ tháng",
-    toMonth: "Tới tháng",
-    exCompany: "Tên công ty",
-    desc: "Mô tả",
+    exPosition: "Position",
+    fromMonth: "From month",
+    toMonth: "To Month",
+    exCompany: "Company",
+    desc: "Description",
   });
   const [educations, setEducations] = useState([]);
   const [projectList, setProjectList] = useState([]);
@@ -262,10 +256,6 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    console.log(educations);
-  }, [educations]);
-
   return (
     <>
       <Head>
@@ -275,7 +265,7 @@ function App() {
         <ThemeProvider theme={customTheme}>
           <Grid container spacing={2}>
             {/* Left side */}
-            <Grid item xs={8}>
+            <Grid item xs={12} sm={6} md={8}>
               <OverviewBlock
                 surName={surName}
                 lastName={lastName}
@@ -338,7 +328,7 @@ function App() {
               />
             </Grid>
             {/* RightSide */}
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <Template01
                 surName={surName}
                 lastName={lastName}
@@ -358,18 +348,45 @@ function App() {
                 educations={educations}
                 projects={projectList}
                 reference={reference}
-                cvRef={cvDownloadRef}
               />
 
               <div className={Styles["button-wrapper"]}>
                 <div className={Styles["button-card"]}>
                   <button
-                    onClick={() => handleGeneratePdf(`${surName}-${lastName}`)}
+                    // onClick={() => handleGeneratePdf(`${surName}-${lastName}`)}
+                    onClick={handleGeneratePdf}
                     className={Styles["btn-luu"]}
                   >
-                    Tải CV
+                    Download CV
                   </button>
                 </div>
+              </div>
+
+              <div
+                className={Styles["cv-Download-container"]}
+                ref={cvContainerRef}
+              >
+                <TemplateDownload01
+                  surName={surName}
+                  lastName={lastName}
+                  position={position}
+                  level={level}
+                  dialingCode={dialingCode}
+                  phoneNumb={phoneNumb}
+                  email={email}
+                  birthDay={birthDay}
+                  nation={nation}
+                  introduction={introduction}
+                  address={address}
+                  experience={experience}
+                  skillList={skillList}
+                  languages={languages}
+                  avatarSrc={avatarSrc}
+                  educations={educations}
+                  projects={projectList}
+                  reference={reference}
+                  cvRef={cvDownloadRef}
+                />
               </div>
             </Grid>
           </Grid>

@@ -44,3 +44,9 @@
   background-color: rgb(253, 99, 51) !important;
   border: 1px solid rgb(253, 99, 51) !important;
 }
+
+.cv-Download-container {
+  margin-top: 50px;
+  position: absolute;
+  visibility: hidden;
+}

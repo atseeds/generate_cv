@@ -91,7 +91,7 @@ function LanguageBlock(props) {
       <div className={Styles["skill-block-wrapper"]}>
         <div className={Styles["content-wrapper"]}>
           {/* Heading */}
-          <h2 className={Styles["custom-heading"]}>Ngoại ngữ</h2>
+          <h2 className={Styles["custom-heading"]}>Language</h2>
           <div className={Styles["form-wrapper"]}>
             <div className={Styles["row"]}>
               {props.languages &&
@@ -110,7 +110,7 @@ function LanguageBlock(props) {
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span>Ngoại ngữ
+                  <span className={Styles["required-icon"]}>*</span>Language
                 </div>
                 <div className={Styles["position-relative"]}>
                   <div className={Styles["position-relative"]}>
@@ -139,8 +139,8 @@ function LanguageBlock(props) {
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Mức độ
-                  thành thạo
+                  <span className={Styles["required-icon"]}>*</span> Proficiency
+                  Level
                 </div>
                 <div className={Styles["position-relative"]}>
                   <Box
@@ -199,7 +199,7 @@ function LanguageBlock(props) {
                     className={Styles["btn-luu"]}
                     onClick={handlingClickAddButton}
                   >
-                    Thêm
+                    Add
                   </button>
                 )}
               </div>
@@ -214,44 +214,43 @@ function LanguageBlock(props) {
 export default LanguageBlock;
 
 const languages = [
-  "Tiếng anh",
-  "Tiếng Việt",
-  "Tiếng ả rập",
-  "Tiếng Bangladesh",
-  "Tiếng Bungari",
-  "Tiếng Miến Điện",
-  "Tiếng campuchia",
-  "Tiếng Bisaya (Philipines)",
-  "Tiếng Quảng Đông",
-  "Tiếng phổ thông",
-  "Tiếng Séc",
-  "Tiếng Đan Mạch",
-  "Tiếng Hà Lan",
-  "Tiếng Phần Lan",
-  "Tiếng Pháp",
-  "Tiếng Đức",
-  "Tiếng Hi Lạp",
-  "Tiếng Ấn Độ",
-  "Tiếng Hungari",
-  "Tiếng Indonesia",
-  "Tiếng Ý",
-  "Tiếng Nhật",
-  "Tiếng Java (Indonesia)",
-  "Tiếng Hàn",
-  "Tiếng Lào",
-  "Tiếng Mã Lai",
-  "Tiếng Na Uy",
-  "Tiếng Ba Lan",
-  "Tiếng Bồ Đào Nha",
-  "Tiếng Romania",
-  "Tiếng Nga",
-  "Tiếng Tây Ban Nha",
-  "Tiếng Thuỵ Điển",
-  "Tiếng Tagalog (Philipines)",
-  "Tiếng Đài Loan",
-  "Tiếng Thái",
-  "Tiếng Thổ Nhĩ Kì",
-  "Tiếng UKraina",
-  "Khác",
-  "",
+  "English",
+  "Vietnamese",
+  "Arabic",
+  "Bengali",
+  "Bulgarian",
+  "Burmese",
+  "Cambodian",
+  "Cebuano (Philippines)",
+  "Cantonese",
+  "Chinese",
+  "Czech",
+  "Danish",
+  "Dutch",
+  "Finnish",
+  "French",
+  "German",
+  "Greek",
+  "Hindi",
+  "Hungarian",
+  "Indonesian",
+  "Italian",
+  "Japanese",
+  "Javanese (Indonesia)",
+  "Korean",
+  "Lao",
+  "Malay",
+  "Norwegian",
+  "Polish",
+  "Portuguese",
+  "Romanian",
+  "Russian",
+  "Spanish",
+  "Swedish",
+  "Tagalog (Philippines)",
+  "Taiwanese",
+  "Thai",
+  "Turkish",
+  "Ukrainian",
+  "Other",
 ];

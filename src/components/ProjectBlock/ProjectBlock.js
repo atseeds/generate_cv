@@ -156,9 +156,10 @@ function ProjectBlock(props) {
         <div className={Styles["project-block-wrapper"]}>
           <div className={Styles["content-wrapper"]}>
             {/* Heading */}
-            <h2 className={Styles["custom-heading"]}>Dự án</h2>
+            <h2 className={Styles["custom-heading"]}>Project</h2>
             <div className={Styles["short-info"]}>
-              Mô tả chi tiết Dự án của bạn - thành tựu và kế hoạch công việc.
+              Provide a detailed description of your Project - achievements and
+              work plan
             </div>
             <div className={Styles["form-wrapper"]}>
               <div className={Styles["row"]}>
@@ -192,7 +193,8 @@ function ProjectBlock(props) {
               <div className={Styles["row"]}>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Tên dự án
+                    <span className={Styles["required-icon"]}>*</span> Project
+                    name
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
@@ -204,7 +206,8 @@ function ProjectBlock(props) {
                 </div>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Chức danh
+                    <span className={Styles["required-icon"]}>*</span> Your
+                    position
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
@@ -218,7 +221,8 @@ function ProjectBlock(props) {
               <div className={Styles["row"]}>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}> </span> Từ tháng
+                    <span className={Styles["required-icon"]}> </span> From
+                    month
                   </div>
                   <div className={Styles["position-relative"]}>
                     <DatePicker
@@ -234,7 +238,7 @@ function ProjectBlock(props) {
                 </div>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}> </span> Đến tháng
+                    <span className={Styles["required-icon"]}> </span> To month
                   </div>
                   <div className={Styles["position-relative"]}>
                     <DatePicker
@@ -252,7 +256,8 @@ function ProjectBlock(props) {
               <div className={Styles["row"]}>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Mô tả
+                    <span className={Styles["required-icon"]}>*</span>{" "}
+                    Description
                   </div>
                   <div className={Styles["position-relative"]}>
                     <textarea
@@ -270,7 +275,7 @@ function ProjectBlock(props) {
               </div>
               <div className={Styles["button-wrapper"]}>
                 <div ref={warningBlock} className={Styles["warning-label"]}>
-                  Bạn cần điền đầy đủ thông tin
+                  Please fill in all the required information
                 </div>
                 <div className={Styles["button-card"]}>
                   {isEdit && (
@@ -278,7 +283,7 @@ function ProjectBlock(props) {
                       onClick={handlingClickExit}
                       className={Styles["btn-huy"]}
                     >
-                      Huỷ
+                      Cancel
                     </button>
                   )}
                   {isEdit ? (
@@ -286,14 +291,14 @@ function ProjectBlock(props) {
                       className={Styles["btn-luu"]}
                       onClick={handlingClickSave}
                     >
-                      Lưu
+                      Save
                     </button>
                   ) : (
                     <button
                       className={Styles["btn-luu"]}
                       onClick={handlingClickAdd}
                     >
-                      Thêm
+                      Add
                     </button>
                   )}
                 </div>

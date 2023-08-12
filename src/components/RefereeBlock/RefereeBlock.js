@@ -77,17 +77,18 @@ function RefereeBlock(props) {
     <>
       <div className={Styles["referee-block"]}>
         <div className={Styles["content-wrapper"]}>
-          <h2 className={Styles["custom-heading"]}>Người tham khảo</h2>
+          <h2 className={Styles["custom-heading"]}>Reference Person</h2>
           <div className={Styles["short-info"]}>
-            Thông tin Người Tham Khảo giúp tăng độ tin cậy cho hồ sơ của bạn và
-            là cơ hội giúp bạn chứng minh năng lực của bản thân.
+            Providing Reference Information enhances the credibility of your
+            profile and serves as an opportunity for you to demonstrate your
+            abilities
           </div>
           <form>
             <div className={Styles["form-wrapper"]}>
               <div className={Styles["row"]}>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Họ và tên
+                    <span className={Styles["required-icon"]}>*</span> Full name
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
@@ -99,7 +100,7 @@ function RefereeBlock(props) {
                 </div>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Chức danh
+                    <span className={Styles["required-icon"]}>*</span> Position
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
@@ -113,7 +114,7 @@ function RefereeBlock(props) {
               <div className={Styles["row"]}>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Công Ty
+                    <span className={Styles["required-icon"]}>*</span> Company
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
@@ -140,13 +141,13 @@ function RefereeBlock(props) {
                     ref={emailWarningLabel}
                     className={Styles["warning-label"]}
                   >
-                    Email của bạn không hợp lệ.
+                    Your reference person email is invalid
                   </div>
                 </div>
                 <div className={Styles["col"]}>
                   <div className={Styles["input-label"]}>
-                    <span className={Styles["required-icon"]}>*</span> Số điện
-                    thoại
+                    <span className={Styles["required-icon"]}>*</span> Phone
+                    number
                   </div>
                   <div
                     className={`${Styles["position-relative"]} ${Styles["phoneNumber-wrapper"]}`}
@@ -201,7 +202,7 @@ function RefereeBlock(props) {
                     ref={phoneWarningLabel}
                     className={Styles["warning-label"]}
                   >
-                    Số điện thoại của bạn không hợp lệ.
+                    Your reference person number is invalid
                   </div>
                 </div>
               </div>
