@@ -1,0 +1,184 @@
+.sticky-position {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: -170px;
+  width: 454px;
+  height: 55px;
+}
+.container {
+  box-sizing: border-box;
+  background-color: #e9e7ea;
+  width: 595px;
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  padding: 6px;
+  display: grid;
+  font-size: 10px;
+  transition: transform 0.3s;
+  box-shadow: none;
+  grid-template-columns: 29% 60%;
+  column-gap: 2%;
+  row-gap: 8px;
+}
+
+.container:hover {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.avatar .img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+.avatar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.name {
+  padding-left: 13.5px;
+  border-left: 1px solid #000;
+}
+.name .h1 {
+  font-weight: 300;
+  font-size: 10px;
+  margin: 0px 0 2.5px;
+}
+.name .specialize {
+  margin: 0;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.name .contact {
+  padding: 0;
+  list-style: none;
+}
+.name .contact .span {
+  display: inline-block;
+  background-color: #000;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 10px;
+  margin-right: 20px;
+}
+.name .contact .li {
+  padding: 2.5px 0;
+  transform: translate(-22px);
+  background-color: #e9e7ea;
+}
+.info ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: right;
+  line-height: 18px;
+}
+
+.h2 {
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+.intro {
+  padding-left: 15px;
+  border-left: 1px solid #000;
+  text-align: justify;
+}
+.fs-sm {
+  font-size: 10px;
+}
+.experience {
+  text-align: right;
+}
+.duration {
+  padding: 5px 0 5px 0;
+}
+.experience h4 {
+  margin: 10px 0 5px;
+}
+.skills {
+  margin-top: 20px;
+}
+.skills-li {
+  padding: 3px !important;
+}
+.experience ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.experience li {
+  padding: 10px 0;
+}
+.project {
+  padding-left: 15px;
+  text-align: justify;
+  border-left: 1px solid #000;
+}
+.des {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-size: 10px;
+}
+.project h4 {
+  margin: 10px 0 5px;
+}
+
+.project .web {
+  color: #0c7373;
+  padding: 5px 0 5px 0;
+}
+.project .location {
+  padding-top: 5px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+.project .item {
+  position: relative;
+}
+.project-ul {
+  padding-left: 20px;
+}
+
+.project .item::before {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #000;
+  content: "";
+  border-radius: 50%;
+  left: -22px;
+}
+.skill-card {
+  display: flex;
+  direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.progress-custom {
+  width: 75%;
+  height: 9px;
+  margin-top: 4px;
+  border-radius: 0;
+}
+.progress-custom::-webkit-progress-bar {
+  background-color: #7f8487;
+}
+.progress-custom::-webkit-progress-value {
+  background-color: #413f42;
+}
+.progress-max {
+  display: flex;
+  width: 75%;
+  height: 9px;
+  margin-top: 4px;
+  border-radius: 0;
+  background-color: #7f8487;
+}

@@ -1,0 +1,201 @@
+.education-block {
+  background: #fff;
+  border: 1px solid #eaeaf0;
+  padding: 0;
+  border-radius: 6px;
+  margin-top: 16px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.education-block:hover {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper {
+  font-size: 14px;
+  position: relative;
+}
+
+.form-wrapper {
+  padding: 24px;
+}
+.required-icon {
+  color: #f85a5a;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  flex-direction: row;
+  gap: 0 24px;
+}
+.col {
+  flex: 1;
+}
+.input-label {
+  font-size: 13px;
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 3px;
+}
+.input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  width: 100%;
+  border: 1px solid #a2a6ac;
+  height: 42px;
+  border-radius: 6px;
+  padding: 8px;
+  background: #fff;
+  cursor: text;
+  transition: all 0.3s ease 0s, font-size 0s ease 0s, letter-spacing 0s ease 0s;
+  white-space: nowrap;
+  -webkit-text-fill-color: rgb(51, 51, 51);
+  opacity: 1;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid rgb(128, 173, 255);
+}
+.position-relative {
+  position: relative;
+  width: 100%;
+}
+
+.custom-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0px !important;
+  padding-top: 24px;
+  padding-left: 20px;
+  margin-bottom: 7px;
+  line-height: 1.2;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.short-info {
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+  padding-left: 20px;
+}
+.text-aria {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  width: 100%;
+  border: 1px solid #a2a6ac;
+  min-height: 12em;
+  border-radius: 6px;
+  padding: 8px;
+  background: #fff;
+  cursor: text;
+  transition: all 0.3s ease 0s, font-size 0s ease 0s, letter-spacing 0s ease 0s;
+  white-space: nowrap;
+  -webkit-text-fill-color: rgb(51, 51, 51);
+  opacity: 1;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+.text-aria:focus {
+  outline: none;
+  border: 1px solid rgb(128, 173, 255);
+}
+.count-text {
+  display: block;
+  margin-top: 0px;
+  font-size: 12px;
+  color: #777;
+}
+.warning-label {
+  color: #f85a5a;
+  font-size: 12px;
+  display: none;
+  margin-top: 5px;
+}
+.button-wrapper {
+  padding: 0;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px 0px 12px 12px;
+}
+.button-card {
+  width: 100%;
+  justify-content: right;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-luu {
+  display: block;
+  margin-left: 4px;
+  margin-right: 0px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 0px 16px;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  transition: background-color 0.3s ease 0s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  height: 40px;
+  line-height: 20px;
+  outline: none !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(255, 125, 85) !important;
+  border: 1px solid rgb(255, 125, 85) !important;
+}
+.btn-luu:hover {
+  background-color: rgb(253, 99, 51) !important;
+  border: 1px solid rgb(253, 99, 51) !important;
+}
+.warning-label {
+  width: 100%;
+  color: #f85a5a;
+  font-size: 12px;
+  display: none;
+  margin-top: 5px;
+}
+.btn-huy {
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 0px 16px;
+  display: inline-flex;
+  margin-right: 4px;
+  margin-left: 0px px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  transition: background-color 0.3s ease 0s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  color: rgb(102, 102, 102);
+  background-color: rgb(244, 244, 247);
+  border: 1px solid rgb(244, 244, 247);
+  font-size: 14px;
+  height: 40px;
+  line-height: 20px;
+  outline: none !important;
+}
+.btn-huy:hover {
+  background-color: rgb(233, 233, 242);
+  border: 1px solid rgb(233, 233, 242);
+}
+.warning-label {
+  width: 100%;
+  color: #f85a5a;
+  font-size: 12px;
+  display: none;
+  margin-top: 5px;
+}

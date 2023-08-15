@@ -1,0 +1,52 @@
+.app-container {
+  padding: 16px;
+}
+.button-wrapper {
+  padding: 0;
+  display: flex;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px 0px 12px 12px;
+}
+.button-card {
+  width: 100%;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-luu {
+  display: block;
+  margin-left: 4px;
+  margin-right: 0px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 0px 16px;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  transition: background-color 0.3s ease 0s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  width: 140px;
+  height: 40px;
+  line-height: 20px;
+  outline: none !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(255, 125, 85) !important;
+  border: 1px solid rgb(255, 125, 85) !important;
+}
+.btn-luu:hover {
+  background-color: rgb(253, 99, 51) !important;
+  border: 1px solid rgb(253, 99, 51) !important;
+}
+
+.cv-Download-container {
+  margin-top: 50px;
+  position: absolute;
+  visibility: hidden;
+}
