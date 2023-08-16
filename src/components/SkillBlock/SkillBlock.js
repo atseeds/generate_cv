@@ -87,6 +87,7 @@ function SkillBlock(props) {
       inputLocator.current.style.border = "1px solid rgb(196, 196, 196)";
       warningBlock1.current.style.display = "none";
       warningBlock2.current.style.display = "none";
+      props.onClickAdd();
     } else if (props.skillList.length >= 5) {
       inputLocator.current.style.border = "1px solid red";
       warningBlock2.current.style.display = "block";
@@ -103,6 +104,7 @@ function SkillBlock(props) {
     inputLocator.current.value = "";
     inputLocator.current.focus();
     setValue(0);
+    props.onClickSave();
   };
 
   const handlingClickExitButton = () => {
@@ -141,6 +143,7 @@ function SkillBlock(props) {
                         getSkillEditKey={updateSkillKeyEdit}
                         skillEditKey={skillKeyEdit}
                         changeSkillName={handlingSetSkillName}
+                        onClickDelete={props.onClickDelete}
                       />
                     </React.Fragment>
                   );
@@ -219,7 +222,7 @@ function SkillBlock(props) {
                     className={Styles["btn-huy"]}
                     onClick={handlingClickExitButton}
                   >
-                    Huỷ
+                    Cancel
                   </button>
                 )}
 
@@ -228,7 +231,7 @@ function SkillBlock(props) {
                     className={Styles["btn-luu"]}
                     onClick={handlingClickSave}
                   >
-                    Lưu
+                    Save
                   </button>
                 ) : (
                   <button

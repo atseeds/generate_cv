@@ -20,6 +20,7 @@ function EducationCard(props) {
 
   const handlingClickDelete = () => {
     props.onDelete(props.education.id);
+    props.onClickDelete();
   };
 
   const handlingClickEdit = () => {

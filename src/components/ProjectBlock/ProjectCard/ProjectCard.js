@@ -17,6 +17,7 @@ function ProjectCard(props) {
   // Delete project callback
   const handlingClickDelete = () => {
     props.onDeleteProject(props.project.key);
+    props.onClickDelete();
   };
   //   Edit project callback
   const handlingClickEdit = () => {

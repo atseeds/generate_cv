@@ -254,14 +254,44 @@ function App() {
     });
   };
 
-  // Enable Toaster message
-  const notifySuccess = () => toast.success("Update image successfully");
+  // Toaster message function
+  // Avatar Updates
+  const notifyUpdateAvtSuccess = () =>
+    toast.success("Update image successfully");
+  const notifyDeleteAvtSuccess = () =>
+    toast.success("Delete image successfully");
+  // Skill Updates
+  const notifyAddSkillSuccess = () => toast.success("Add skill successfully");
+  const notifyDeleteSkillSuccess = () =>
+    toast.success("Delete skill successfully");
+  const notifyUpdateSkillSuccess = () =>
+    toast.success("Update skill successfully");
+  // Language Updates
+  const notifyAddLanguageSuccess = () =>
+    toast.success("Add language successfully");
+  const notifyDeleteLanguageSuccess = () =>
+    toast.success("Delete language successfully");
+  // Education Updates
+  const notifyAddEducationSuccess = () =>
+    toast.success("Add language successfully");
+  const notifyDeleteEducationSuccess = () =>
+    toast.success("Delete language successfully");
+  const notifyUpdateEducationSuccess = () =>
+    toast.success("Update language successfully");
+  // Work exp
+  const notifyAddProjectSuccess = () =>
+    toast.success("Add project successfully");
+  const notifyDeleteProjectSuccess = () =>
+    toast.success("Delete project successfully");
+  const notifyUpdateProjectSuccess = () =>
+    toast.success("Update project successfully");
 
   return (
     <>
       <Head>
         <title>WowCV - Cập nhật thông tin chi tiết</title>
       </Head>
+      <button onClick={notifyDeleteAvtSuccess}>Cl</button>
       <main className={Styles["app-container"]}>
         <div>
           <Toaster
@@ -292,7 +322,8 @@ function App() {
                 onChangeSurName={updateSurName}
                 onChangeLastName={updateLastName}
                 onChangePosition={updatePosition}
-                onClickSave={notifySuccess}
+                onClickSave={notifyUpdateAvtSuccess}
+                onClickDeleteAvt={notifyDeleteAvtSuccess}
               />
               <ProfileBlock
                 dialingCode={dialingCode}
@@ -318,17 +349,25 @@ function App() {
                 skillList={skillList}
                 onRemoveSkill={deleteItemInSkillList}
                 onEditSkillItem={editItemSkillList}
+                onClickAdd={notifyAddSkillSuccess}
+                onClickDelete={notifyDeleteSkillSuccess}
+                onClickSave={notifyUpdateSkillSuccess}
               />
               <LanguageBlock
                 onChangeLanguage={updateLanguages}
                 onDeleteLanguageItem={deleteLanguagesItem}
                 languages={languages}
+                onClickAdd={notifyAddLanguageSuccess}
+                onClickDelete={notifyDeleteLanguageSuccess}
               />
               <EducationBlock
                 educations={educations}
                 onUpdateEducation={updateEducations}
                 onDeleteEducationItem={deleteEducations}
                 onEditEducations={editEducations}
+                onClickAdd={notifyAddEducationSuccess}
+                onClickSave={notifyUpdateEducationSuccess}
+                onClickDelete={notifyDeleteEducationSuccess}
               />
               <RefereeBlock
                 reference={reference}
@@ -339,6 +378,9 @@ function App() {
                 onUpdateProjectList={updateProjectList}
                 onDeleteProjectList={deleteItemProjectList}
                 onEditProjectList={editProjectList}
+                onClickAdd={notifyAddProjectSuccess}
+                onClickSave={notifyUpdateProjectSuccess}
+                onClickDelete={notifyDeleteProjectSuccess}
               />
             </Grid>
             {/* RightSide */}

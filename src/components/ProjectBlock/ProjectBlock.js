@@ -114,6 +114,7 @@ function ProjectBlock(props) {
       positionInputLocator.current.style.border =
         "1px solid rgb(196, 196, 196)";
       descInputLocator.current.style.border = "1px solid rgb(196, 196, 196)";
+      props.onClickAdd();
     } else {
       warningBlock.current.style.display = "block";
       if (nameInputLocator.current.value == "") {
@@ -139,6 +140,7 @@ function ProjectBlock(props) {
     descInputLocator.current.value = "";
     // cancel edit mode
     setIsEdit(false);
+    props.onClickSave();
   };
   // Cancel editting
   const handlingClickExit = () => {
@@ -185,6 +187,7 @@ function ProjectBlock(props) {
                           onChangeProjectDescription={
                             handlingUpdateProjectDescription
                           }
+                          onClickDelete={props.onClickDelete}
                         />
                       </React.Fragment>
                     );

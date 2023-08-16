@@ -19,6 +19,7 @@ function SkillCard(props) {
 
   const handlingDeleteClick = () => {
     props.removeSkill(props.skillKey);
+    props.onClickDelete();
   };
   const handlingEditClick = () => {
     props.inputLocator.current.value = props.skillName;

@@ -78,6 +78,7 @@ function LanguageBlock(props) {
       warningLabelBlock.current.style.display = "none";
       warningLabelBlock2.current.style.display = "none";
       warningLabelBlock3.current.style.display = "none";
+      props.onClickAdd();
     } else if (props.languages.length >= 4) {
       warningLabelBlock2.current.style.display = "block";
       warningLabelBlock3.current.style.display = "none";
@@ -99,6 +100,7 @@ function LanguageBlock(props) {
                   return (
                     <React.Fragment key={"skill" + index}>
                       <LanguageCard
+                        onClickDelete={props.onClickDelete}
                         language={language}
                         onDelete={props.onDeleteLanguageItem}
                         onEdit={setIsEdit}
@@ -183,13 +185,13 @@ function LanguageBlock(props) {
             </div>
             <div className={Styles["button-wrapper"]}>
               <div ref={warningLabelBlock} className={Styles["warning-label"]}>
-                Bạn cần điền đầy đủ thông tin
+                Please fill in all the required information
               </div>
               <div ref={warningLabelBlock2} className={Styles["warning-label"]}>
-                Bạn đã ghi tối đa
+                You have reached the maximum limit
               </div>
               <div ref={warningLabelBlock3} className={Styles["warning-label"]}>
-                Thông tin bị trùng
+                The information is duplicated
               </div>
               <div className={Styles["button-card"]}>
                 {isEdit && <button className={Styles["btn-huy"]}>Huỷ</button>}

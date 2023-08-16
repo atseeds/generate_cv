@@ -9,6 +9,7 @@ import Styles from "./LanguageCardStyles.module.css";
 function LanguageCard(props) {
   const handlingClickDelete = () => {
     props.onDelete(props.language.id);
+    props.onClickDelete();
   };
 
   return (

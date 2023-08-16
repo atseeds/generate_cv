@@ -63,6 +63,7 @@ function OverviewBlock(props) {
 
   const handlingClickDeleteAvatarSrc = () => {
     props.onDeleteAvatarSrc("");
+    props.onClickDeleteAvt();
   };
 
   return (
