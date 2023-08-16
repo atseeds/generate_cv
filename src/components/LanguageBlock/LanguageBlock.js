@@ -16,9 +16,9 @@ const sxStyle = {
 };
 
 const labels = {
-  1: "Useless",
+  1: "Terrible",
   2: "Poor",
-  3: "Ok",
+  3: "Average",
   4: "Good",
   5: "Excellent",
 };
@@ -125,6 +125,7 @@ function LanguageBlock(props) {
                       style={{ height: "40px" }}
                       renderInput={(params) => (
                         <TextField
+                          placeholder="Enter your language"
                           inputRef={inputLocator}
                           {...params}
                           inputProps={{

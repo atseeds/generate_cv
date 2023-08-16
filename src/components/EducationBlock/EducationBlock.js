@@ -207,6 +207,7 @@ function EducationBlock(props) {
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
+                    placeholder="Major"
                     ref={majorInputLocator}
                     onChange={handlingChangeMajorInput}
                     className={Styles["input"]}
@@ -224,6 +225,7 @@ function EducationBlock(props) {
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
+                    placeholder="University"
                     ref={schoolInputLocator}
                     onChange={handlingChangeSchoolInput}
                     className={Styles["input"]}

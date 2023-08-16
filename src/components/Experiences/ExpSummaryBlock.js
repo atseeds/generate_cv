@@ -14,7 +14,7 @@ const sxStyle = {
   },
 };
 
-function ExperiencesBlock(props) {
+function ExpSummaryBlock(props) {
   const maxCount = 5000;
   const [count, setCount] = React.useState(0);
 
@@ -23,6 +23,9 @@ function ExperiencesBlock(props) {
   const positionWarning = useRef();
   const companyWarning = useRef();
   const companyInputLocator = useRef();
+  const expYearInputLocator = useRef();
+  const LessExpWarning = useRef();
+  const MoreExpWarning = useRef();
 
   const handlingChangeDescription = (e) => {
     let temp = countCharacters(e.target.value);
@@ -41,7 +44,7 @@ function ExperiencesBlock(props) {
         "1px solid rgb(196, 196, 196)";
       positionWarning.current.style.display = "none";
     } else {
-      positionInputLocator.current.style.border = "1px solid red";
+      positionInputLocator.current.style.border = "1px solid red ";
       positionWarning.current.style.display = "block";
     }
   };
@@ -50,6 +53,7 @@ function ExperiencesBlock(props) {
     if (e.target.value != "") {
       let value = { ...props.experience, exCompany: e.target.value };
       props.onChangeExperience(value);
+
       companyInputLocator.current.style.border = "1px solid rgb(196, 196, 196)";
       companyWarning.current.style.display = "none";
     } else {
@@ -58,21 +62,30 @@ function ExperiencesBlock(props) {
     }
   };
 
-  const handlingChangeFromMonth = (value) => {
-    let tempValue = { ...props.experience, fromMonth: value };
-    props.onChangeExperience(tempValue);
-  };
-
-  const handlingChangeToMonth = (value) => {
-    let tempValue = { ...props.experience, toMonth: value };
-    props.onChangeExperience(tempValue);
+  const handlingChangeExpYear = (e) => {
+    let value = e.target.value;
+    if (value > 0 && value <= 70) {
+      let tempValue = { ...props.experience, expYear: e.target.value };
+      props.onChangeExperience(tempValue);
+      LessExpWarning.current.style.display = "none";
+      MoreExpWarning.current.style.display = "none";
+      expYearInputLocator.current.style.border = "1px solid rgb(196, 196, 196)";
+    } else if (value <= 0) {
+      expYearInputLocator.current.style.border = "1px solid red";
+      MoreExpWarning.current.style.display = "block";
+      LessExpWarning.current.style.display = "none";
+    } else {
+      expYearInputLocator.current.style.border = "1px solid red";
+      MoreExpWarning.current.style.display = "none";
+      LessExpWarning.current.style.display = "block";
+    }
   };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div className={Styles["experiences-block"]}>
         <div className={Styles["content-wrapper"]}>
-          <h2 className={Styles["custom-heading"]}>Work Experience</h2>
+          <h2 className={Styles["custom-heading"]}>PROFESSIONAL SUMMARY</h2>
           <div className={Styles["short-info"]}>
             Provide a detailed description of your work experience as much as
             possible, as it increases your chances of appearing more prominently
@@ -86,7 +99,7 @@ function ExperiencesBlock(props) {
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
-                    defaultValue={"Position"}
+                    placeholder={"Position"}
                     ref={positionInputLocator}
                     onChange={handlingChangeExPosition}
                     className={Styles["input"]}
@@ -98,52 +111,43 @@ function ExperiencesBlock(props) {
               </div>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}>*</span> Company
+                  <span className={Styles["required-icon"]}>*</span> Years of
+                  experience
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
-                    ref={companyInputLocator}
-                    defaultValue={"Company"}
-                    onChange={handlingChangeExCompany}
+                    ref={expYearInputLocator}
+                    type="number"
+                    min={0}
+                    max={70}
+                    placeholder={"Years of experience"}
+                    onChange={handlingChangeExpYear}
                     className={Styles["input"]}
                   ></input>
                 </div>
-                <div ref={companyWarning} className={Styles["warning-label"]}>
-                  Your information is invalid
+                <div ref={LessExpWarning} className={Styles["warning-label"]}>
+                  The number of years should be less than 70
+                </div>
+                <div ref={MoreExpWarning} className={Styles["warning-label"]}>
+                  The number of years should be more than 0
                 </div>
               </div>
             </div>
             <div className={Styles["row"]}>
               <div className={Styles["col"]}>
                 <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> From month
+                  <span className={Styles["required-icon"]}>*</span> Company
                 </div>
-                {/* from month */}
                 <div className={Styles["position-relative"]}>
-                  <DatePicker
-                    disableFuture
-                    onChange={(newValue) => {
-                      const formattedDate = dayjs(newValue).format("MM-YYYY");
-                      handlingChangeFromMonth(formattedDate);
-                    }}
-                    sx={sxStyle}
-                  />
+                  <input
+                    ref={companyInputLocator}
+                    placeholder={"Company"}
+                    onChange={handlingChangeExCompany}
+                    className={Styles["input"]}
+                  ></input>
                 </div>
-              </div>
-              <div className={Styles["col"]}>
-                <div className={Styles["input-label"]}>
-                  <span className={Styles["required-icon"]}> </span> To month
-                </div>
-                {/* to month */}
-                <div className={Styles["position-relative"]}>
-                  <DatePicker
-                    disableFuture
-                    onChange={(newValue) => {
-                      const formattedDate = dayjs(newValue).format("MM-YYYY");
-                      handlingChangeToMonth(formattedDate);
-                    }}
-                    sx={sxStyle}
-                  />
+                <div ref={companyWarning} className={Styles["warning-label"]}>
+                  Your information is invalid
                 </div>
               </div>
             </div>
@@ -163,11 +167,6 @@ function ExperiencesBlock(props) {
               {"/"}
               {maxCount}
             </div>
-            <div className={Styles["button-wrapper"]}>
-              <div className={Styles["button-card"]}>
-                <button className={Styles["btn-luu"]}>Save</button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -175,4 +174,4 @@ function ExperiencesBlock(props) {
   );
 }
 
-export default ExperiencesBlock;
+export default ExpSummaryBlock;

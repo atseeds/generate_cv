@@ -50,14 +50,24 @@ function TemplateDownload01(props) {
           <div className={Styles["fs-sm"]}>{props.introduction}</div>
         </div>
         <div className={Styles["experience"]}>
-          <h2 className={Styles.h2}>EXPERIENCE</h2>
+          <h2 className={Styles.h2}>PROFESSIONAL SUMMARY</h2>
           {/* Experience Item */}
           <div className={Styles["item"]}>
             <h4 className={Styles.h4}>{props.experience.exPosition}</h4>
             <div className={Styles["time"]}>
-              <span className={Styles["duration"]}>
-                {props.experience.fromMonth} - {props.experience.toMonth}
-              </span>
+              {props.experience.expYear <= 0 && (
+                <span className={Styles["duration"]}>Year experience</span>
+              )}
+              {props.experience.expYear == 1 && (
+                <span className={Styles["duration"]}>
+                  {props.experience.expYear} year experience
+                </span>
+              )}
+              {props.experience.expYear > 1 && (
+                <span className={Styles["duration"]}>
+                  {props.experience.expYear} years experience
+                </span>
+              )}
               <br />
               <span> {props.experience.exCompany}</span>
             </div>
@@ -165,7 +175,7 @@ function TemplateDownload01(props) {
           </div>
         </div>
         <div className={Styles["project"]}>
-          <h2 className={Styles["h2"]}>PROJECT</h2>
+          <h2 className={Styles["h2"]}>WORK EXPERIENCE</h2>
           {props.projects &&
             props.projects.map((project, index) => {
               return (

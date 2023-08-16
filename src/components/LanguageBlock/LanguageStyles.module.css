@@ -69,6 +69,9 @@
 .input:hover {
   border: 1px solid rgb(128, 173, 255);
 }
+.input::placeholder {
+  opacity: 0.5;
+}
 .position-relative {
   position: relative;
 }

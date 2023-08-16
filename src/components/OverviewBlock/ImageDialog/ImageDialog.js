@@ -45,6 +45,11 @@ function ImageDialog(props) {
     onChangeAvatarSrc(imgPreview);
     handlingOnClosePreviewImg();
     handlingCloseDialog();
+    props.onClickSave();
+  };
+  const handlingClickCancel = () => {
+    handlingOnClosePreviewImg();
+    handlingCloseDialog();
   };
 
   return (
@@ -55,9 +60,9 @@ function ImageDialog(props) {
         alignItems={"center"}
       >
         {imgPreview ? (
-          <div className={Styles["Dialog-Title"]}>Chỉnh sửa hình ảnh</div>
+          <div className={Styles["Dialog-Title"]}>Edit Image</div>
         ) : (
-          <div className={Styles["Dialog-Title"]}>Cập nhật hình ảnh</div>
+          <div className={Styles["Dialog-Title"]}>Update Image</div>
         )}
 
         <div className={Styles[""]}>
@@ -70,7 +75,7 @@ function ImageDialog(props) {
         <div className={Styles["avatar-preview-wrapper"]}>
           <div className={Styles["edit-img-wrapper"]}>
             <p className={Styles["custom-previewImg-label"]}>
-              Vui lòng chọn ảnh bạn muốn
+              Please select the image you desire
             </p>
             <Avatar
               width={"506"}
@@ -80,7 +85,7 @@ function ImageDialog(props) {
               backgroundColor={"rgb(153,153,153)"}
               closeIconColor="black"
               shadingColor="#8a7e7d"
-              label="Chọn file ở đây"
+              label="Choose your file here"
               borderStyle={{
                 border: "3px dashed black",
                 opacity: 0.8,
@@ -93,7 +98,7 @@ function ImageDialog(props) {
             />
           </div>
           <div className={Styles["preview-img-wrapper"]}>
-            <p className={Styles["custom-previewImg-label"]}>Xem trước</p>
+            <p className={Styles["custom-previewImg-label"]}>Image Preview</p>
             {imgPreview && (
               <img className={Styles.img} src={imgPreview} alt="ABC" />
             )}
@@ -103,12 +108,14 @@ function ImageDialog(props) {
       <DialogActions>
         <div className={Styles["button-wrapper"]}>
           <div className={Styles["button-card"]}>
-            <button className={Styles["btn-huy"]} onClick={handlingCloseDialog}>
-              Huỷ
+            <button className={Styles["btn-huy"]} onClick={handlingClickCancel}>
+              Cancel
             </button>
-            <button className={Styles["btn-luu"]} onClick={handlingClickSave}>
-              Lưu
-            </button>
+            {imgPreview && (
+              <button className={Styles["btn-luu"]} onClick={handlingClickSave}>
+                Save
+              </button>
+            )}
           </div>
         </div>
       </DialogActions>

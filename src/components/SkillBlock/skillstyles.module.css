@@ -46,6 +46,9 @@
   color: #333;
   margin-bottom: 3px;
 }
+.input::placeholder {
+  opacity: 0.5;
+}
 
 .required-icon {
   color: #f85a5a;

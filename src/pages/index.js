@@ -1,23 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Styles from "../styles/home.module.css";
-import { Grid, Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import OverviewBlock from "../components/OverviewBlock/OverviewBlock";
 import ProfileBlock from "../components/ProfileBlock/ProfileBlock";
 import CarreerGoalsBlock from "../components/CarreerGoalsBlock/CarreerGoalsBlock";
-import ExperiencesBlock from "../components/Experiences/ExperiencesBlock";
+import ExpSummaryBlock from "../components/Experiences/ExpSummaryBlock";
 import EducationBlock from "../components/EducationBlock/EducationBlock";
 import SkillBlock from "../components/SkillBlock/SkillBlock";
 import LanguageBlock from "../components/LanguageBlock/LanguageBlock";
 import RefereeBlock from "../components/RefereeBlock/RefereeBlock";
-import JobBlock from "../components/JobBlock/JobBlock";
 import customTheme from "../Theme/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import Template01 from "../components/CanvasTemplate/Template01/Template01";
 import ProjectBlock from "../components/ProjectBlock/ProjectBlock";
-import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import TemplateDownload01 from "../components/CanvasTemplate/Template01/TemplateDownload01";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   // useREf for template download
@@ -66,8 +65,7 @@ function App() {
   });
   const [experience, setExperience] = useState({
     exPosition: "Position",
-    fromMonth: "From month",
-    toMonth: "To Month",
+    expYear: 0,
     exCompany: "Company",
     desc: "Description",
   });
@@ -256,12 +254,28 @@ function App() {
     });
   };
 
+  // Enable Toaster message
+  const notifySuccess = () => toast.success("Update image successfully");
+
   return (
     <>
       <Head>
         <title>WowCV - Cập nhật thông tin chi tiết</title>
       </Head>
       <main className={Styles["app-container"]}>
+        <button onClick={notifySuccess}>Clic</button>
+        <div>
+          <Toaster
+            toastOptions={{
+              style: {
+                marginTop: "0px",
+                backgroundColor: "black",
+                color: "white",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              },
+            }}
+          />
+        </div>
         <ThemeProvider theme={customTheme}>
           <Grid container spacing={2}>
             {/* Left side */}
@@ -279,6 +293,7 @@ function App() {
                 onChangeSurName={updateSurName}
                 onChangeLastName={updateLastName}
                 onChangePosition={updatePosition}
+                onClickSave={notifySuccess}
               />
               <ProfileBlock
                 dialingCode={dialingCode}
@@ -290,7 +305,7 @@ function App() {
                 onChangeNation={updateNation}
                 onChangeAddress={updateAddress}
               />
-              <ExperiencesBlock
+              <ExpSummaryBlock
                 experience={experience}
                 onChangeExperience={updateExperience}
               />

@@ -104,7 +104,7 @@ function ProfileBlock(props) {
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
-                    defaultValue={"Email"}
+                    placeholder={"Email"}
                     ref={emailInputLocator}
                     onBlur={handlingChangeEmail}
                     className={Styles["input"]}
@@ -156,6 +156,7 @@ function ProfileBlock(props) {
                       )}
                       renderInput={(params) => (
                         <TextField
+                          placeholder="+84"
                           {...params}
                           inputProps={{
                             ...params.inputProps,
@@ -167,7 +168,7 @@ function ProfileBlock(props) {
                   </div>
                   <div style={{ flex: 3 }}>
                     <input
-                      defaultValue={"Phone number"}
+                      placeholder={"Phone number"}
                       ref={phoneInputLocator}
                       onBlur={handlingChangePhoneNumb}
                       className={Styles["input"]}
@@ -232,6 +233,7 @@ function ProfileBlock(props) {
                     )}
                     renderInput={(params) => (
                       <TextField
+                        placeholder="Enter your nation"
                         {...params}
                         inputProps={{
                           ...params.inputProps,
@@ -250,6 +252,7 @@ function ProfileBlock(props) {
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
+                    placeholder="Address"
                     ref={inputAddressLocator}
                     onChange={handlingChangeAddress}
                     className={Styles["input"]}

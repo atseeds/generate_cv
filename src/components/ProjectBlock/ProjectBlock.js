@@ -156,7 +156,7 @@ function ProjectBlock(props) {
         <div className={Styles["project-block-wrapper"]}>
           <div className={Styles["content-wrapper"]}>
             {/* Heading */}
-            <h2 className={Styles["custom-heading"]}>Project</h2>
+            <h2 className={Styles["custom-heading"]}>WORK EXPERIENCE</h2>
             <div className={Styles["short-info"]}>
               Provide a detailed description of your Project - achievements and
               work plan
@@ -198,6 +198,7 @@ function ProjectBlock(props) {
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
+                      placeholder="Projects name"
                       ref={nameInputLocator}
                       onChange={handlingChangeNameInput}
                       className={Styles["input"]}
@@ -211,6 +212,7 @@ function ProjectBlock(props) {
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
+                      placeholder="Your position"
                       ref={positionInputLocator}
                       onChange={handlingChangePosition}
                       className={Styles["input"]}

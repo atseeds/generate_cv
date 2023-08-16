@@ -93,7 +93,7 @@ function RefereeBlock(props) {
                   <div className={Styles["position-relative"]}>
                     <input
                       onChange={handlingUpdateReferenceName}
-                      value={props.reference.name}
+                      placeholder="Full name"
                       className={Styles["input"]}
                     ></input>
                   </div>
@@ -104,7 +104,7 @@ function RefereeBlock(props) {
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
-                      value={props.reference.position}
+                      placeholder="Position"
                       onChange={handlingUpdateReferencePosition}
                       className={Styles["input"]}
                     ></input>
@@ -119,7 +119,7 @@ function RefereeBlock(props) {
                   <div className={Styles["position-relative"]}>
                     <input
                       onChange={handlingUpdateReferenceCompany}
-                      value={props.reference.company}
+                      placeholder="Company"
                       className={Styles["input"]}
                     ></input>
                   </div>
@@ -132,6 +132,7 @@ function RefereeBlock(props) {
                   </div>
                   <div className={Styles["position-relative"]}>
                     <input
+                      placeholder="Email"
                       ref={emailInputLocator}
                       onBlur={handlingUpdateEmail}
                       className={Styles["input"]}
@@ -183,6 +184,7 @@ function RefereeBlock(props) {
                         )}
                         renderInput={(params) => (
                           <TextField
+                            placeholder="+84"
                             {...params}
                             inputProps={{
                               ...params.inputProps,
@@ -193,6 +195,7 @@ function RefereeBlock(props) {
                       />
                     </div>
                     <input
+                      placeholder="Phone number"
                       onBlur={handlingUpdatePhoneNumb}
                       ref={phoneInputLocator}
                       className={Styles["input"]}

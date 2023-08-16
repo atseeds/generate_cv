@@ -153,6 +153,7 @@ function SkillBlock(props) {
                 </div>
                 <div className={Styles["position-relative"]}>
                   <input
+                    placeholder="Enter your skill"
                     className={Styles["input"]}
                     ref={inputLocator}
                     onChange={handlingChangeSkillName}

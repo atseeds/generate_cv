@@ -96,6 +96,9 @@
   overflow: hidden !important;
   box-sizing: border-box;
 }
+.input::placeholder {
+  opacity: 0.5;
+}
 
 .input:focus {
   border: 1px solid rgb(128, 173, 255);
