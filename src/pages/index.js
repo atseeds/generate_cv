@@ -263,7 +263,6 @@ function App() {
         <title>WowCV - Cập nhật thông tin chi tiết</title>
       </Head>
       <main className={Styles["app-container"]}>
-        <button onClick={notifySuccess}>Clic</button>
         <div>
           <Toaster
             toastOptions={{
