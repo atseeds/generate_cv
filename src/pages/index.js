@@ -291,7 +291,6 @@ function App() {
       <Head>
         <title>WowCV - Cập nhật thông tin chi tiết</title>
       </Head>
-      <button onClick={notifyDeleteAvtSuccess}>Cl</button>
       <main className={Styles["app-container"]}>
         <div>
           <Toaster
