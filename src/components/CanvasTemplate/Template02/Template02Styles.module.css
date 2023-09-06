@@ -1,0 +1,259 @@
+.cv-container {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  width: 754.32px;
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  display: grid;
+  font-size: 10px;
+  transition: transform 0.3s;
+  box-shadow: none;
+  grid-template-columns: 35% 65%;
+  transition: transform 0.3s;
+  row-gap: -0.5px;
+  box-shadow: none;
+}
+.cv-container:hover {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.avatar-container {
+  background-color: rgb(51, 59, 76);
+  height: 150px;
+  margin-bottom: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.avatar {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+.introduction-container {
+  background-color: rgb(233, 231, 234);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.introduction-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  position: absolute;
+  width: 220px;
+  height: 140px;
+}
+.name {
+  width: 330px;
+  display: flex;
+  flex-direction: row;
+}
+.first {
+  margin-right: 12px;
+}
+.first-name {
+  font-size: 25px;
+  font-weight: 200;
+  width: 100%;
+  flex: 1;
+}
+.last-name {
+  font-size: 25px;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+  flex: 1;
+}
+.position {
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+  font-size: 13px;
+  width: 100%;
+  flex: 1;
+}
+.contact-wrapper {
+  margin-top: 10px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.phone-wrapper {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.mail-wrapper {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.overview-container {
+  background-color: rgb(51, 59, 76);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.exp-container {
+  background-color: rgb(233, 231, 234);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+}
+.profile-title {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  width: 130px;
+  color: white;
+}
+.profile-desc {
+  font-weight: 200;
+  color: white;
+  font-size: 10px;
+  width: 130px;
+  overflow-wrap: break-word;
+}
+.ul {
+  padding-left: 15px;
+}
+.li {
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+.skill-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  width: 130px;
+  color: white;
+}
+.skill-card {
+  display: flex;
+  flex-direction: column;
+}
+.skill-content {
+  width: 100%;
+}
+.skill-progress-max {
+  margin-top: 5px;
+  background-color: #7895cb;
+  width: 100%;
+  height: 5px;
+}
+.language-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  width: 130px;
+  color: white;
+}
+.exp-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.exp-title {
+  margin-left: 25px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+}
+.experiences {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-right: 15px;
+}
+.experience {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.exp-company-name {
+  font-size: 11px;
+  font-weight: 600;
+  flex: 1;
+  margin-bottom: 3px;
+}
+.exp-position {
+  font-size: 12px;
+  flex: 1;
+  margin-bottom: 3px;
+}
+.exp-desc {
+  font-weight: 300;
+  font-size: 10px;
+  flex: 1;
+}
+.education-title {
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+}
+.ref-name {
+  font-size: 13px;
+  font-weight: 600;
+  flex: 1;
+  margin-bottom: 3px;
+}
+.ref-position {
+  font-size: 11px;
+  font-weight: 400;
+  flex: 1;
+  margin-bottom: 3px;
+}
+.ref-contact-wrapper {
+  margin-top: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.icon {
+  width: 12px;
+  height: 14px;
+  margin-right: 8px;
+}
+.mail-icon {
+  transform: translateY(1px);
+  width: 12px;
+  height: 14px;
+  margin-right: 8px;
+}

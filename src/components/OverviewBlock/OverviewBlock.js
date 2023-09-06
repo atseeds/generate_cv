@@ -168,7 +168,7 @@ function OverviewBlock(props) {
                   ></input>
                 </div>
                 <div ref={surnameWarning} className={Style["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
               {/* Tên */}
@@ -185,7 +185,7 @@ function OverviewBlock(props) {
                   ></input>
                 </div>
                 <div ref={lastNameWarning} className={Style["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
               {/* Chức danh */}
@@ -202,7 +202,7 @@ function OverviewBlock(props) {
                   ></input>
                 </div>
                 <div ref={positionWarning} className={Style["warning-label"]}>
-                  Thông tin không hợp lệ
+                  Your information is invalid
                 </div>
               </div>
             </div>
