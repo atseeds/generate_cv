@@ -17,13 +17,14 @@ pipeline {
       }
     }
 
-    stage('Initialize'){
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+    
 
     stage('Build image') {
       steps{
+        stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+      }
         script {
           dockerImage = docker.build dockerimagename
         }
@@ -35,6 +36,10 @@ pipeline {
                registryCredential = 'dockerhub-credentials'
            }
       steps{
+        stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
             dockerImage.push("latest")
