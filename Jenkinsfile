@@ -11,7 +11,8 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/atseeds/generate_cv.git', branch: 'dev' 
+        git 'https://github.com/atseeds/generate_cv.git' 
+        branch 'dev' 
       }
     }
 
