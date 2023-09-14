@@ -1,9 +1,9 @@
 pipeline {
 
-//   environment {
-//     dockerimagename = "quancyber/next-app"
-//     dockerImage = ""
-//   }
+  environment {
+    dockerimagename = "quancyber/next-app"
+    dockerImage = ""
+  }
 
   agent any
 
@@ -17,7 +17,9 @@ pipeline {
 
     stage('Build image') {
       steps{
-        sh 'docker build -t quancyber/next-app:latest .'
+        script {
+          dockerImage = docker.build dockerimagename
+        }
       }
     }
 
@@ -28,7 +30,7 @@ pipeline {
       steps{
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            sh 'docker push quancyber/next-app:latest'
+            dockerImage.push("latest")
           }
         }
       }
