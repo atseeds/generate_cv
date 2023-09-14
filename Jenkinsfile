@@ -9,6 +9,11 @@ pipeline {
 
   stages {
 
+    stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+
     stage('Checkout Source') {
       steps {
         git url: 'https://github.com/atseeds/generate_cv.git', branch: 'dev' 
