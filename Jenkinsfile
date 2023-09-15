@@ -38,12 +38,15 @@ pipeline {
 
     stage('Deploying Next.js container to Kubernetes') {
       steps {
-        script {
-            kubeconfig(configs: "deployment.yaml", "service.yaml")
+        container('kubectl') {
+          sh 'kubectl apply -f deployment.yaml'
+          sh 'kubectl apply -f service.yaml'
+          withCredentials([file(credentialsId: 'kubeconfig-vc-non-admin', variable: 'TMPKUBECONFIG')]) {
+            sh "cp \$TMPKUBECONFIG /.kube/config"
+          }
         }
       }
     }
-
   }
 
 }
