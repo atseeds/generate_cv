@@ -5,7 +5,7 @@ metadata:
   labels:
     app: next-app
 spec:
-  replicas: 2 #The number of pods to be created in the Kubernetes cluster for the Next.js application container
+  replicas: 1 #The number of pods to be created in the Kubernetes cluster for the Next.js application container
   selector:
     matchLabels:
       app: next-app
