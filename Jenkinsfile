@@ -39,11 +39,7 @@ pipeline {
     stage('Deploying Next.js container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(
-            kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
-          )
-
-          
+            kubeconfig(configs: "deployment.yaml", "service.yaml")
         }
       }
     }
