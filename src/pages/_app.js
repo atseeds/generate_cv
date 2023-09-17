@@ -1,12 +1,8 @@
 import { Roboto } from "next/font/google";
 import { Inter } from "next/font/google";
-const roboto = Roboto({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const inter = Inter({
-  weight: "400",
+  weight: "300",
   subsets: ["latin"],
 });
 

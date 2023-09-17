@@ -95,6 +95,7 @@
 }
 .experience {
   text-align: right;
+  min-height: 454px;
 }
 .duration {
   padding: 5px 0 5px 0;

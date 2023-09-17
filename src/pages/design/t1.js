@@ -31,9 +31,14 @@ function App() {
 
     // Initialize the jsPDF object fit the cv height
     if (height < 842) {
-      var doc = new jsPDF("landscape", "px", [width, height + 0.0001]);
+      var doc = new jsPDF({
+        orientation: "p",
+        unit: "px",
+        format: "a4",
+        putOnlyUsedFonts: true,
+      });
     } else {
-      var doc = new jsPDF("p", "px", [width, 842]);
+      var doc = new jsPDF("a4", "px", [width, 842]);
     }
 
     doc.html(cvDownloadRef.current, {

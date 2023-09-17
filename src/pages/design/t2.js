@@ -33,11 +33,10 @@ function App() {
     console.log("height" + height);
 
     // Initialize the jsPDF object fit the cv height
-    if (height < 842) {
-      var doc = new jsPDF("landscape", "px", [width, height + 0.0001]);
-    } else {
-      var doc = new jsPDF("p", "px", [width, 842]);
-    }
+    const doc = new jsPDF({
+      format: "a4",
+      unit: "px",
+    });
 
     doc.html(cvDownloadRef.current, {
       callback: function (doc) {

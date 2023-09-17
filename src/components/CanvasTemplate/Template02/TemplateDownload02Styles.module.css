@@ -3,15 +3,14 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
-  width: 754.32px;
+  width: 100%;
   position: relative;
-  max-width: 100%;
   margin: auto;
   display: grid;
   font-size: 10px;
   transition: transform 0.3s;
   box-shadow: none;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 25% 75%;
   transition: transform 0.3s;
   box-shadow: none;
 }
@@ -20,8 +19,7 @@
 }
 .avatar-container {
   background-color: rgb(51, 59, 76);
-  height: 150px;
-  margin-bottom: 29px;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,11 +27,12 @@
   height: 100%;
 }
 .avatar {
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   margin-right: 5px;
   border-radius: 50%;
+  transform: translateY(-19px);
 }
 .introduction-container {
   background-color: rgb(233, 231, 234);
@@ -45,7 +44,8 @@
 .introduction-wrapper {
   display: flex;
   flex-direction: column;
-  margin-left: 25px;
+  margin-left: 15px;
+  margin-top: 5px;
   position: absolute;
   width: 220px;
   height: 140px;
@@ -56,26 +56,28 @@
   flex-direction: row;
 }
 .first {
-  margin-right: 12px;
+  margin-right: 3px;
 }
 .first-name {
-  font-size: 25px;
-  font-weight: 200;
+  font-size: 19px;
   width: 100%;
   flex: 1;
+  display: flex;
+  flex-direction: row;
 }
 .last-name {
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 400;
   font-style: normal;
   width: 100%;
   flex: 1;
+  letter-spacing: 2px;
 }
 .position {
   display: flex;
   align-items: center;
   font-weight: 200;
-  font-size: 13px;
+  font-size: 11px;
   width: 100%;
   flex: 1;
 }
@@ -106,7 +108,7 @@
   background-color: rgb(51, 59, 76);
   display: flex;
   width: 100%;
-  height: 100%;
+  min-height: 471px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,7 +140,7 @@
 .profile-desc {
   font-weight: 200;
   color: white;
-  font-size: 10px;
+  font-size: 8px;
   width: 130px;
   overflow-wrap: break-word;
 }
@@ -159,6 +161,7 @@
   color: white;
 }
 .skill-card {
+  width: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -185,7 +188,7 @@
   flex-direction: column;
 }
 .exp-title {
-  margin-left: 25px;
+  margin-left: 15px;
   margin-top: 40px;
   margin-bottom: 10px;
   font-weight: 400;
@@ -212,7 +215,7 @@
   margin-bottom: 3px;
 }
 .exp-position {
-  font-size: 12px;
+  font-size: 8px;
   flex: 1;
   margin-bottom: 3px;
 }
@@ -222,7 +225,7 @@
   flex: 1;
 }
 .education-title {
-  margin-left: 25px;
+  margin-left: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
   font-weight: 400;

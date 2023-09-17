@@ -32,40 +32,38 @@ function Index() {
             collection of attractive and functional CV templates that can be
             modified to suit any position.
           </div>
-          <Grid
-            className={Styles["cv-menu-container"]}
-            container
-            spacing={3}
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          >
-            <Grid item xs={4}>
-              <div
-                className={Styles["cv-item"]}
-                onClick={handlingClickCvTemplate01}
-              >
+          <div className={Styles["cv-menu-container"]}>
+            <div
+              className={Styles["cv-item"]}
+              onClick={handlingClickCvTemplate01}
+            >
+              <div className={Styles["img-preview-wrapper"]}>
                 <img
                   className={Styles["img-preview"]}
                   src="https://i.imgur.com/heSFIiJ.png"
                   alt=""
-                />
-                <Link ref={linkTemplate01Ref} href="/design/t1"></Link>
+                ></img>
               </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div
-                className={Styles["cv-item"]}
-                onClick={handlingClickCvTemplate02}
-              >
+              <Link href="/design/t1" ref={linkTemplate01Ref}>
+                Home
+              </Link>
+            </div>
+            <div
+              className={Styles["cv-item"]}
+              onClick={handlingClickCvTemplate02}
+            >
+              <div className={Styles["img-preview-wrapper"]}>
                 <img
                   className={Styles["img-preview"]}
                   src="https://i.imgur.com/LDmfLzE.png"
                   alt=""
-                />
-                <Link ref={linkTemplate02Ref} href="/design/t2"></Link>
+                ></img>
               </div>
-            </Grid>
-          </Grid>
+              <Link href="/design/t2" ref={linkTemplate02Ref}>
+                Home
+              </Link>
+            </div>
+          </div>
         </div>
       </main>
     </>

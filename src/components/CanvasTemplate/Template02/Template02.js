@@ -126,7 +126,9 @@ function Template02(props) {
                       </div>
                       <div className={Styles["exp-desc"]}>
                         <ul style={{ paddingLeft: "20px", margin: "0" }}>
-                          <li>{project.desc}</li>
+                          <li style={{ wordWrap: "break-word" }}>
+                            {project.desc}
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -154,7 +156,9 @@ function Template02(props) {
                       {education.desc && (
                         <div className={Styles["exp-desc"]}>
                           <ul style={{ paddingLeft: "20px", margin: "0" }}>
-                            <li>{education.desc}</li>
+                            <li style={{ wordWrap: "break-word" }}>
+                              {education.desc}
+                            </li>
                           </ul>
                         </div>
                       )}
