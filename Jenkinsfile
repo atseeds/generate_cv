@@ -38,11 +38,8 @@ pipeline {
 
     stage('Deploying Next.js container to Kubernetes') {
       steps {
-        container('kubernetes') {
-          sh 'kubectl apply -f deployment.yaml'
-          sh 'kubectl apply -f service.yaml'
-          
-        }
+        sh 'kubectl apply -f deployment.yaml'
+        sh 'kubectl apply -f service.yaml'
       }
     }
   }
