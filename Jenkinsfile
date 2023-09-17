@@ -5,9 +5,7 @@ pipeline {
     dockerImage = ""
   }
 
-  agent {
-    kubernetes
-  }
+  agent node
 
   stages {
 
