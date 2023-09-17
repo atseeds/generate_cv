@@ -41,9 +41,7 @@ pipeline {
         container('kubectl') {
           sh 'kubectl apply -f deployment.yaml'
           sh 'kubectl apply -f service.yaml'
-          withCredentials([file(credentialsId: 'kubeconfig-vc-non-admin', variable: 'TMPKUBECONFIG')]) {
-            sh "cp \$TMPKUBECONFIG /.kube/config"
-          }
+          
         }
       }
     }
