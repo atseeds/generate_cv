@@ -5,10 +5,7 @@ pipeline {
     dockerImage = ""
   }
 
-  agent {
-    node {
-    }
-  }
+  agent any
 
   stages {
 
