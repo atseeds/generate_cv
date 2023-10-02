@@ -1,0 +1,218 @@
+.cv-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  transition: transform 0.3s;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-bottom: 5px solid rgb(141, 75, 86);
+  background-color: rgb(255, 253, 253);
+}
+.cv-container:hover {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.left-side-container {
+  position: relative;
+  flex: 0.7;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding-bottom: 1;
+  word-break: break-word;
+}
+.right-side-container {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  word-break: break-word;
+}
+.left-side-top-background {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(141, 75, 86);
+}
+.right-side-top-background {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(141, 75, 86);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.avatar-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 145px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.avatar {
+  width: 110px;
+  height: 110px;
+  margin-right: 20px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.my-contact-container {
+  margin-top: 7px;
+  box-sizing: border-box;
+  font-size: 9px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+.left-side-heading-container {
+  width: 80px;
+  padding-bottom: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  color: rgb(148, 38, 55);
+  border-bottom: 1px solid rgb(148, 38, 55);
+}
+.my-contact-mail-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+.my-contact-mail-icon {
+  width: 12px;
+  height: 12px;
+}
+.skill-item-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 6px;
+}
+.skill-progress-max {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: black;
+}
+.skill-progress-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 4px;
+  height: 3px;
+  padding-left: 10px;
+  padding-right: 50px;
+}
+.skill-progress {
+  width: 70%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: rgb(148, 38, 55);
+}
+.education-item-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.li-custom::marker {
+  font-size: 20px;
+}
+.li-custom {
+  width: 16px;
+}
+
+.education-school-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.education-major-wrapper {
+  padding-left: 16px;
+  font-size: 8px;
+}
+.education-desc-wrapper {
+  padding-left: 16px;
+  font-size: 7px;
+  margin-top: 3px;
+}
+.full-name-wrapper {
+  font-weight: bold;
+  font-size: 23px;
+  color: white;
+}
+.position-wrapper {
+  font-size: 13px;
+  font-weight: 100;
+  color: white;
+}
+.right-side-heading-container {
+  width: 80px;
+  padding-bottom: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  color: rgb(148, 38, 55);
+  border-bottom: 1px solid rgb(148, 38, 55);
+  margin-top: 14px;
+}
+.about-me-desct-wrapper {
+  font-size: 8px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+.exp-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+.exp-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 8px;
+  margin-top: 5px;
+}
+.exp-title {
+  font-size: 9px;
+}
+.exp-duration {
+  font-size: 8px;
+}
+.exp-desc {
+  font-size: 7px;
+  margin-top: 2px;
+}
+.ref-container {
+  display: flex;
+  flex-direction: column;
+}
+.ref-name-wrapper {
+  font-size: 9px;
+  font-weight: bold;
+}
+.ref-company-and-position-wrapper {
+  margin-top: 2px;
+  font-size: 8px;
+}
+.ref-phone-container {
+  display: flex;
+  margin-top: 2px;
+  flex-direction: row;
+  font-size: 7px;
+}
+.right-side-ref-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  height: 100%;
+}

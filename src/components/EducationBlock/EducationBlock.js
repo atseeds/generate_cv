@@ -99,7 +99,6 @@ function EducationBlock(props) {
         school: schoolInputLocator.current.value,
       };
 
-      console.log(tempEducation);
       props.onUpdateEducation(tempEducation);
       // update Key + 1
       setId(id + 1);

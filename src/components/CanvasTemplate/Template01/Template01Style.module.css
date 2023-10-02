@@ -91,6 +91,7 @@
   padding-left: 15px;
   border-left: 1px solid #000;
   text-align: justify;
+  word-wrap: break-word;
 }
 .fs-sm {
   font-size: 13px;

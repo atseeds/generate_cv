@@ -8,7 +8,7 @@
 .container {
   box-sizing: border-box;
   background-color: #e9e7ea;
-  width: 754.32px;
+  width: 450px;
   position: relative;
   max-width: 100%;
   padding: 6px;
@@ -89,6 +89,7 @@
   padding-left: 15px;
   border-left: 1px solid #000;
   text-align: justify;
+  word-wrap: break-word;
 }
 .fs-sm {
   font-size: 10px;

@@ -1,5 +1,5 @@
 .app-container {
-  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif !important;
+  font-family: "Inter", sans-serif;
   padding: 16px;
 }
 .button-wrapper {
@@ -47,10 +47,10 @@
 }
 
 .cv-Download-container {
-  width: 595px;
+  width: 450px;
   margin-top: 50px;
   position: absolute;
-  height: 842px;
+  height: 660px;
   visibility: hidden;
 }
 .header-container {
@@ -70,36 +70,129 @@
   text-align: center;
 }
 .cv-menu-container {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   box-sizing: border-box;
-  padding: 50px;
-  width: 100%;
-  height: 100%;
   margin-top: 50px;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(3, 497px);
-  gap: 50px;
+  padding: 30px 0px 30px 0px;
+  height: 500px;
+  border-top: 1px solid rgb(217, 222, 235);
+}
+.header-and-menu-container {
+  padding: 40px 150px 40px 150px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.title-wrapper {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.desc-wrapper {
+  font-size: 18px;
+  text-align: center;
 }
 .cv-item {
-  background-color: rgb(240, 242, 248);
+  width: 33.333333%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 8px 0 8px;
   box-sizing: border-box;
+}
+.cv-item-body {
+  height: 80%;
+  display: inline-block;
+  vertical-align: top;
   padding: 32px;
-  width: 100%;
-  height: 100%;
-  position: relative;
   cursor: pointer;
-}
-.cv-item:hover {
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-}
-.img-preview {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.img-preview-wrapper {
+  background-color: rgb(240, 242, 248);
+  text-align: center;
   position: relative;
-  background-color: green;
+}
+
+.img-preview {
+  object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: box-shadow 0.2s ease;
+}
+.cv-item-body:hover .img-preview {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.use-template-button {
+  outline: none;
+  width: 50%;
+  height: 9%;
+  cursor: pointer;
+  border: none;
+  padding: 0.9rem 2rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  /* letter-spacing: 0.05rem; */
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 500px;
+  overflow: hidden;
+  background: #1170cd;
+  color: ghostwhite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 10px;
+  opacity: 0;
+}
+.use-template-button-content {
+  position: relative;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 22px;
+  z-index: 10;
+  transition: color 0.4s;
+}
+.use-template-button:hover .use-template-button-content {
+  color: white;
+}
+.use-template-button::before,
+.use-template-button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.use-template-button::before {
+  content: "";
+  background: #1a91f0;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+.use-template-button:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.cv-item-body:hover .use-template-button {
+  animation: fadeIn 0.5s forwards;
+}
+.link {
+  display: none;
 }

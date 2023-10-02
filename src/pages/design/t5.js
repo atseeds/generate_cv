@@ -5,19 +5,17 @@ import { Grid } from "@mui/material";
 import OverviewBlock from "../../components/OverviewBlock/OverviewBlock";
 import ProfileBlock from "../../components/ProfileBlock/ProfileBlock";
 import CarreerGoalsBlock from "../../components/CarreerGoalsBlock/CarreerGoalsBlock";
-import ExpSummaryBlock from "../../components/Experiences/ExpSummaryBlock";
 import EducationBlock from "../../components/EducationBlock/EducationBlock";
 import SkillBlock from "../../components/SkillBlock/SkillBlock";
 import LanguageBlock from "../../components/LanguageBlock/LanguageBlock";
 import RefereeBlock from "../../components/RefereeBlock/RefereeBlock";
 import customTheme from "../../Theme/theme";
 import { ThemeProvider } from "@mui/material";
-import Template01 from "../../components/CanvasTemplate/Template01/Template01";
 import ProjectBlock from "../../components/ProjectBlock/ProjectBlock";
 import jsPDF from "jspdf";
-import TemplateDownload01 from "../../components/CanvasTemplate/Template01/TemplateDownload01";
 import toast, { Toaster } from "react-hot-toast";
-
+import TemplateDownload05 from "../../components/CanvasTemplate/Template05/TemplateDownload05";
+import Template05 from "../../components/CanvasTemplate/Template05/Template05";
 function App() {
   // useREf for template download
   const cvDownloadRef = useRef();
@@ -26,20 +24,15 @@ function App() {
 
   const handleGeneratePdf = async () => {
     // Get height and width of the cv to download
+
     const height = cvDownloadRef.current.offsetHeight;
     const width = cvDownloadRef.current.offsetWidth;
 
     // Initialize the jsPDF object fit the cv height
-    if (height < 842) {
-      var doc = new jsPDF({
-        orientation: "p",
-        unit: "px",
-        format: "a4",
-        putOnlyUsedFonts: true,
-      });
-    } else {
-      var doc = new jsPDF("a4", "px", [width, 842]);
-    }
+    const doc = new jsPDF({
+      format: "a4",
+      unit: "px",
+    });
 
     doc.html(cvDownloadRef.current, {
       callback: function (doc) {
@@ -55,7 +48,7 @@ function App() {
   const [position, setPosition] = useState("Position");
   const [level, setLevel] = useState("Cấp độ");
   const [dialingCode, setDialingCode] = useState("");
-  const [phoneNumb, setPhoneNumb] = useState("Phone number");
+  const [phoneNumb, setPhoneNumb] = useState("Phone");
   const [email, setEmail] = useState("Email");
   const [birthDay, setBirthDay] = useState("Birthday");
   const [nation, setNation] = useState("Nation");
@@ -343,10 +336,7 @@ function App() {
                 onChangeNation={updateNation}
                 onChangeAddress={updateAddress}
               />
-              <ExpSummaryBlock
-                experience={experience}
-                onChangeExperience={updateExperience}
-              />
+
               <CarreerGoalsBlock
                 onChangeIntroduction={updateIntroduction}
                 introduction={introduction}
@@ -393,7 +383,7 @@ function App() {
             </Grid>
             {/* RightSide */}
             <Grid item xs={12} sm={6} md={4}>
-              <Template01
+              <Template05
                 surName={surName}
                 lastName={lastName}
                 position={position}
@@ -412,8 +402,8 @@ function App() {
                 educations={educations}
                 projects={projectList}
                 reference={reference}
+                cvRef={cvDownloadRef}
               />
-
               <div className={Styles["button-wrapper"]}>
                 <div className={Styles["button-card"]}>
                   <button
@@ -430,7 +420,7 @@ function App() {
                 className={Styles["cv-Download-container"]}
                 ref={cvContainerRef}
               >
-                <TemplateDownload01
+                <TemplateDownload05
                   surName={surName}
                   lastName={lastName}
                   position={position}

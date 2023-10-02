@@ -30,8 +30,6 @@ function App() {
     const height = cvDownloadRef.current.offsetHeight;
     const width = cvDownloadRef.current.offsetWidth;
 
-    console.log("height" + height);
-
     // Initialize the jsPDF object fit the cv height
     const doc = new jsPDF({
       format: "a4",
@@ -313,7 +311,7 @@ function App() {
         <ThemeProvider theme={customTheme}>
           <Grid container spacing={2}>
             {/* Left side */}
-            <Grid item xs={12} sm={6} md={7}>
+            <Grid item xs={12} sm={6} md={8}>
               <OverviewBlock
                 surName={surName}
                 lastName={lastName}
@@ -386,7 +384,7 @@ function App() {
               />
             </Grid>
             {/* RightSide */}
-            <Grid item xs={12} sm={6} md={5}>
+            <Grid item xs={12} sm={6} md={4}>
               <Template02
                 surName={surName}
                 lastName={lastName}

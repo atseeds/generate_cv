@@ -209,6 +209,7 @@
   font-weight: 600;
   flex: 1;
   margin-bottom: 3px;
+  word-break: break-word;
 }
 .exp-position {
   font-size: 12px;

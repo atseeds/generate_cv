@@ -3,14 +3,15 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
-  width: 100%;
+  width: 450px;
+  min-height: 631px;
   position: relative;
   margin: auto;
   display: grid;
   font-size: 10px;
   transition: transform 0.3s;
   box-shadow: none;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 35% 65%;
   transition: transform 0.3s;
   box-shadow: none;
 }
@@ -213,6 +214,7 @@
   font-weight: 600;
   flex: 1;
   margin-bottom: 3px;
+  word-break: break-word;
 }
 .exp-position {
   font-size: 8px;

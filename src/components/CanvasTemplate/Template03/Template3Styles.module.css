@@ -1,0 +1,211 @@
+.cv-container {
+  width: 100%;
+  background-color: rgb(188, 200, 202);
+  display: flex;
+  flex-direction: column;
+  padding: 0px 25px 25px 25px;
+  gap: 20px;
+  transition: transform 0.3s;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+.cv-container:hover {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.introduction-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.overview-container {
+  box-sizing: border-box;
+  padding: 10px 20px 10px 20px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(216, 227, 229);
+  border-top: 10px solid black;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.avatar-and-name-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.contact-container {
+  flex: 0.25;
+  display: flex;
+  flex-direction: row;
+}
+.avatar-wrapper {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+.name-wrapper {
+  height: 50%;
+}
+.position-wrapper {
+  height: 50%;
+}
+.phone-container {
+  flex: 0.7;
+  display: flex;
+  flex-direction: row;
+}
+.mail-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.location-container {
+  flex: 0.8;
+  display: flex;
+  flex-direction: row;
+}
+.avatar {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+.name-wrapper {
+  display: flex;
+  align-items: flex-end;
+  font-size: 25px;
+}
+.position-wrapper {
+  padding-top: 5px;
+}
+.phone-icon-wrapper {
+  flex: 0.3;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.phone-number-wrapper {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.leftside-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.rightside-container {
+  flex: 0.4;
+  width: 100%;
+  height: 100%;
+}
+.work-exp-container {
+  display: flex;
+  flex-direction: column;
+}
+.work-exp-title {
+  flex: 1;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.work-exp-position-and-duration {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  gap: 30px;
+}
+.work-exp-company-location {
+  flex: 1;
+  width: 100%;
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+.work-exp-desc {
+  flex: 1;
+  width: 100%;
+  font-size: 10px;
+  margin-bottom: 10px;
+  text-align: justify;
+  overflow-wrap: break-word;
+}
+.work-exp-position {
+  font-size: 10px;
+  order: 1;
+}
+.work-exp-duration {
+  font-size: 10px;
+  order: 2;
+  width: 100%;
+}
+.reference-phone-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  gap: 10px;
+}
+.reference-email-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  gap: 16px;
+}
+.about-me-container {
+  display: flex;
+  flex-direction: column;
+}
+.course-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.diamond-container {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-left: 15px;
+  gap: 6px;
+}
+.diamond {
+  width: 6px;
+  height: 6px;
+  background-color: #7eaa92;
+  transform: rotate(45deg);
+  border: 0.5px solid black;
+}
+.empty-diamond {
+  width: 6px;
+  height: 6px;
+  background-color: rgb(188, 201, 202);
+  transform: rotate(45deg);
+  border: 0.5px solid black;
+}
